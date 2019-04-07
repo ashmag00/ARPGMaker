@@ -1,6 +1,7 @@
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
 //#include "Map.h"
+#include "inputs.cpp"
 sf::RenderWindow window;
 
 /******************
@@ -33,4 +34,3 @@ void systemEventHandler() {
             close();
     }
 }
-

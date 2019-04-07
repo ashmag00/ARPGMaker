@@ -1,5 +1,6 @@
 #include <Python.h>
 #include <iostream>
+#include <string>
 
 #include "engine/main.cpp"
 
@@ -51,6 +52,17 @@ static PyObject *ARPGMaker_systemEventHandler(PyObject *self, PyObject *args) {
     Py_RETURN_NONE;
 }
 
+static PyObject *ARPGMaker_isKeyPressed(PyObject *self, PyObject *args) {
+    char *key;
+    int ret;
+
+    if (!PyArg_ParseTuple(args, "s", &key))
+        return NULL;
+
+    ret = isKeyPressed(key);
+    return PyLong_FromLong(ret);
+}
+
 static PyMethodDef ARPGMakerMethods[] = {
     {"system",  ARPGMaker_system, METH_VARARGS, "Execute a shell command."},
     {"init", ARPGMaker_init, METH_VARARGS, ""},
@@ -58,6 +70,7 @@ static PyMethodDef ARPGMakerMethods[] = {
     {"printHello", ARPGMaker_hello, METH_VARARGS, ""},
     {"close", ARPGMaker_close, METH_VARARGS, ""},
     {"systemEventHandler", ARPGMaker_systemEventHandler, METH_VARARGS, ""},
+    {"isKeyPressed", ARPGMaker_isKeyPressed, METH_VARARGS, ""},
     {NULL, NULL, 0, NULL}
 };
 
