@@ -1,10 +1,10 @@
-import spam
+import ARPGMaker
 
-from time import sleep
+ARPGMaker.printHello()
 
-spam.printHello()
+ARPGMaker.init(800, 600, "ARPGMaker Demo Using C++")
+ARPGMaker.display()
+while True:
+    ARPGMaker.systemEventHandler()
 
-spam.init(800, 600, "Game")
-spam.display()
-spam.systemEventHandler()
-sleep(5)
+exit()

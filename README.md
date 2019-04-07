@@ -1,6 +1,17 @@
 # ARPGMaker
 ARPG Game Engine for COS370
 
+## Build and Run
+NOTE: Requires Python 3.7
+To build the ARPGMaker module:
+```
+$ python3.7 setup.py build
+```
+To run the game:
+```
+$ python3.7 <path/to/game.py>
+```
+
 ## Features
 - Map
   - Adjustable tile system

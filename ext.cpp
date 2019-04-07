@@ -9,12 +9,12 @@ void printHello() {
     cout << "Hello World!" << endl;
 }
 
-static PyObject *spam_hello(PyObject *self, PyObject *args) {
+static PyObject *ARPGMaker_hello(PyObject *self, PyObject *args) {
     printHello();
     Py_RETURN_NONE;
 }
 
-static PyObject *spam_system(PyObject *self, PyObject *args) {
+static PyObject *ARPGMaker_system(PyObject *self, PyObject *args) {
     const char *command;
     int sts;
 
@@ -24,7 +24,7 @@ static PyObject *spam_system(PyObject *self, PyObject *args) {
     return PyLong_FromLong(sts);
 }
 
-static PyObject *spam_init(PyObject *self, PyObject *args) {
+static PyObject *ARPGMaker_init(PyObject *self, PyObject *args) {
     int resX;
     int resY;
     const char *title;
@@ -36,42 +36,42 @@ static PyObject *spam_init(PyObject *self, PyObject *args) {
     Py_RETURN_NONE;
 }
 
-static PyObject *spam_display(PyObject *self, PyObject *args) {
+static PyObject *ARPGMaker_display(PyObject *self, PyObject *args) {
     display();
     Py_RETURN_NONE;
 }
 
-static PyObject *spam_close(PyObject *self, PyObject *args) {
+static PyObject *ARPGMaker_close(PyObject *self, PyObject *args) {
     close();
     Py_RETURN_NONE;
 }
 
-static PyObject *spam_systemEventHandler(PyObject *self, PyObject *args) {
+static PyObject *ARPGMaker_systemEventHandler(PyObject *self, PyObject *args) {
     systemEventHandler();
     Py_RETURN_NONE;
 }
 
-static PyMethodDef SpamMethods[] = {
-    {"system",  spam_system, METH_VARARGS, "Execute a shell command."},
-    {"init", spam_init, METH_VARARGS, ""},
-    {"display", spam_display, METH_VARARGS, ""},
-    {"printHello", spam_hello, METH_VARARGS, ""},
-    {"close", spam_close, METH_VARARGS, ""},
-    {"systemEventHandler", spam_systemEventHandler, METH_VARARGS, ""},
+static PyMethodDef ARPGMakerMethods[] = {
+    {"system",  ARPGMaker_system, METH_VARARGS, "Execute a shell command."},
+    {"init", ARPGMaker_init, METH_VARARGS, ""},
+    {"display", ARPGMaker_display, METH_VARARGS, ""},
+    {"printHello", ARPGMaker_hello, METH_VARARGS, ""},
+    {"close", ARPGMaker_close, METH_VARARGS, ""},
+    {"systemEventHandler", ARPGMaker_systemEventHandler, METH_VARARGS, ""},
     {NULL, NULL, 0, NULL}
 };
 
-static struct PyModuleDef spammodule = {
+static struct PyModuleDef ARPGMakermodule = {
     PyModuleDef_HEAD_INIT,
-    "spam",
+    "ARPGMaker",
     NULL,
     -1,
 
-    SpamMethods
+    ARPGMakerMethods
 };
 
 PyMODINIT_FUNC
-PyInit_spam(void)
+PyInit_ARPGMaker(void)
 {
-    return PyModule_Create(&spammodule);
+    return PyModule_Create(&ARPGMakermodule);
 }
