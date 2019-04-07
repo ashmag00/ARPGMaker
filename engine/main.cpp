@@ -7,7 +7,7 @@ sf::RenderWindow window;
 /******************
  * Initialize the engine
  *****************/
-void init(int resX, int resY, const char *title) {
+void init(int resX, int resY, char *title) {
     window.create(sf::VideoMode(resX, resY), title);
 }
 

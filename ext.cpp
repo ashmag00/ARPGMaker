@@ -28,7 +28,7 @@ static PyObject *ARPGMaker_system(PyObject *self, PyObject *args) {
 static PyObject *ARPGMaker_init(PyObject *self, PyObject *args) {
     int resX;
     int resY;
-    const char *title;
+    char *title;
 
     if (!PyArg_ParseTuple(args, "iis", &resX, &resY, &title))
         return NULL;
