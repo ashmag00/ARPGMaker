@@ -73,6 +73,11 @@ static PyObject *ARPGMaker_renderImage(PyObject *self, PyObject *args) {
     Py_RETURN_NONE;
 }
 
+static PyObject *ARPGMaker_draw(PyObject *self, PyObject *args) {
+    draw();
+    Py_RETURN_NONE;
+}
+
 static PyMethodDef ARPGMakerMethods[] = {
     {"system",  ARPGMaker_system, METH_VARARGS, "Execute a shell command."},
     {"init", ARPGMaker_init, METH_VARARGS, ""},
@@ -82,6 +87,7 @@ static PyMethodDef ARPGMakerMethods[] = {
     {"systemEventHandler", ARPGMaker_systemEventHandler, METH_VARARGS, ""},
     {"isKeyPressed", ARPGMaker_isKeyPressed, METH_VARARGS, ""},
     {"renderImage", ARPGMaker_renderImage, METH_VARARGS, ""},
+    {"draw", ARPGMaker_draw, METH_VARARGS, ""},
     {NULL, NULL, 0, NULL}
 };
 

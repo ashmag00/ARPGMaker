@@ -1,8 +1,12 @@
 import ARPGMaker
 
-ARPGMaker.printHello()
+from time import sleep
+
+# ARPGMaker.printHello()
 
 ARPGMaker.init(800, 600, "ARPGMaker Demo Using C++")
+# ARPGMaker.renderImage("assets/testBack.png")
+# ARPGMaker.renderImage("assets/pikachu.png")
 
 while True:
     ARPGMaker.systemEventHandler()
@@ -14,7 +18,7 @@ while True:
     #     print('A')
     # if ARPGMaker.isKeyPressed('D') == 1:
     #     print('D')
+    # ARPGMaker.draw()
     ARPGMaker.renderImage("assets/testBack.png")
     ARPGMaker.display()
-
-exit()
+# sleep(5)

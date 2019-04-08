@@ -5,11 +5,11 @@ ARPG Game Engine for COS370
 NOTE: Requires Python 3.7
 To build the ARPGMaker module:
 ```
-$ python3.7 setup.py build
+$ make build
 ```
 To run the game:
 ```
-$ python3.7 <path/to/game.py>
+$ make run
 ```
 
 ## Features
@@ -33,3 +33,7 @@ $ python3.7 <path/to/game.py>
     - Take input
     - Movement
   - Load .png for background
+
+### Issues
+- Textures require rendering and drawing in the same scope
+- Drawable is pur virtual, so no buffer of Drawables
