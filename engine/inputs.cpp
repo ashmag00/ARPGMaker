@@ -1,3 +1,7 @@
+#include "render.cpp"
+
+#ifndef INPUTS_CPP
+#define INPUTS_CPP
 using namespace std;
 
 int isKeyPressed(char *key) {
@@ -23,3 +27,5 @@ int isKeyPressed(char *key) {
 
     return 0;
 }
+
+#endif

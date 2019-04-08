@@ -1,19 +1,15 @@
-#include <SFML/Audio.hpp>
-#include <SFML/Graphics.hpp>
 //#include "Map.h"
 #include "inputs.cpp"
-sf::RenderWindow window;
+#include "render.cpp"
+
+#ifndef MAIN_CPP
+#define MAIN_CPP
 
 /******************
  * Initialize the engine
  *****************/
 void init(int resX, int resY, char *title) {
     window.create(sf::VideoMode(resX, resY), title);
-}
-
-
-void display() {
-    window.display();
 }
 
 /******************
@@ -34,3 +30,4 @@ void systemEventHandler() {
             close();
     }
 }
+#endif

@@ -63,6 +63,16 @@ static PyObject *ARPGMaker_isKeyPressed(PyObject *self, PyObject *args) {
     return PyLong_FromLong(ret);
 }
 
+static PyObject *ARPGMaker_renderImage(PyObject *self, PyObject *args) {
+    char *filePath;
+
+    if (!PyArg_ParseTuple(args, "s", &filePath))
+        return NULL;
+
+    renderImage(filePath);
+    Py_RETURN_NONE;
+}
+
 static PyMethodDef ARPGMakerMethods[] = {
     {"system",  ARPGMaker_system, METH_VARARGS, "Execute a shell command."},
     {"init", ARPGMaker_init, METH_VARARGS, ""},
@@ -71,6 +81,7 @@ static PyMethodDef ARPGMakerMethods[] = {
     {"close", ARPGMaker_close, METH_VARARGS, ""},
     {"systemEventHandler", ARPGMaker_systemEventHandler, METH_VARARGS, ""},
     {"isKeyPressed", ARPGMaker_isKeyPressed, METH_VARARGS, ""},
+    {"renderImage", ARPGMaker_renderImage, METH_VARARGS, ""},
     {NULL, NULL, 0, NULL}
 };
 

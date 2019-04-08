@@ -14,6 +14,7 @@ while True:
     #     print('A')
     # if ARPGMaker.isKeyPressed('D') == 1:
     #     print('D')
+    ARPGMaker.renderImage("assets/testBack.png")
     ARPGMaker.display()
 
 exit()
