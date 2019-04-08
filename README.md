@@ -3,11 +3,14 @@ ARPG Game Engine for COS370
 
 ## Build and Run
 NOTE: Requires Python 3.7
-To build the ARPGMaker module:
+
+1. Build the ARPGMaker module:
 ```
 $ make build
 ```
-To run the game:
+2. Update the Makefile to point to your `game.py`
+
+3. Run the game:
 ```
 $ make run
 ```
@@ -34,6 +37,6 @@ $ make run
     - Movement
   - Load .png for background
 
-### Issues
+## Issues
 - Textures require rendering and drawing in the same scope
-- Drawable is pur virtual, so no buffer of Drawables
+- sf::Drawable is pure virtual, so no buffer of Drawables
