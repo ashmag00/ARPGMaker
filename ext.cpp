@@ -6,24 +6,9 @@
 
 using namespace std;
 
-void printHello() {
-    cout << "Hello World!" << endl;
-}
-
-static PyObject *ARPGMaker_hello(PyObject *self, PyObject *args) {
-    printHello();
-    Py_RETURN_NONE;
-}
-
-static PyObject *ARPGMaker_system(PyObject *self, PyObject *args) {
-    const char *command;
-    int sts;
-
-    if (!PyArg_ParseTuple(args, "s", &command))
-        return NULL;
-    sts = system(command);
-    return PyLong_FromLong(sts);
-}
+// Extend all developer-level functions to a Python module
+// #1: Create method to read Python arguments and types and call the engine function
+// #2: Add function call to the list of methods
 
 static PyObject *ARPGMaker_init(PyObject *self, PyObject *args) {
     int resX;
@@ -63,6 +48,16 @@ static PyObject *ARPGMaker_isKeyPressed(PyObject *self, PyObject *args) {
     return PyLong_FromLong(ret);
 }
 
+static PyObject *ARPGMaker_loadTexture(PyObject *self, PyObject *args) {
+    char *filePath;
+
+    if (!PyArg_ParseTuple(args, "s", &filePath))
+        return NULL;
+
+    loadTexture(filePath);
+    Py_RETURN_NONE;
+}
+
 static PyObject *ARPGMaker_renderImage(PyObject *self, PyObject *args) {
     char *filePath;
 
@@ -79,15 +74,14 @@ static PyObject *ARPGMaker_draw(PyObject *self, PyObject *args) {
 }
 
 static PyMethodDef ARPGMakerMethods[] = {
-    {"system",  ARPGMaker_system, METH_VARARGS, "Execute a shell command."},
     {"init", ARPGMaker_init, METH_VARARGS, ""},
     {"display", ARPGMaker_display, METH_VARARGS, ""},
-    {"printHello", ARPGMaker_hello, METH_VARARGS, ""},
     {"close", ARPGMaker_close, METH_VARARGS, ""},
     {"systemEventHandler", ARPGMaker_systemEventHandler, METH_VARARGS, ""},
     {"isKeyPressed", ARPGMaker_isKeyPressed, METH_VARARGS, ""},
     {"renderImage", ARPGMaker_renderImage, METH_VARARGS, ""},
     {"draw", ARPGMaker_draw, METH_VARARGS, ""},
+    {"loadTexture", ARPGMaker_loadTexture, METH_VARARGS, ""},
     {NULL, NULL, 0, NULL}
 };
 

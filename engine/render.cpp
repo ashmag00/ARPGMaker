@@ -1,39 +1,47 @@
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
 #include <queue>
+#include <unordered_map>
 
 #ifndef RENDER_CPP
 #define RENDER_CPP
 /**********************
  * Rendering system and functions
  *********************/
-sf::RenderWindow window;
 using namespace std;
 
-queue<sf::Sprite> buffer;
-sf::Sprite background;
+sf::RenderWindow window;
+queue<sf::Sprite*> buffer;
+unordered_map<char *, sf::Texture> textureMap;
+// sf::Sprite background;
 
 void display() {
     window.display();
 }
 
-void renderImage(char* filePath) {
+void loadTexture(char *filePath) {
     sf::Texture tex;
     string fp(filePath);
-    // cout << fp << endl;
     if (!tex.loadFromFile(fp)) return;
-    background.setTexture(tex);
+    // textureMap.insert(make_pair<char*, sf::Texture>(filePath, tex));
+    textureMap[filePath] = tex;
+}
+
+void renderImage(char* filePath) {
+    // background.setTexture(tex);
     // background.setPosition(400.f, 300.f);
-    buffer.push(background);
-    window.draw(background);
+    buffer.push(new sf::Sprite(textureMap[filePath]));
+    // window.draw(background);
 }
 
 void draw() {
-    //while (!buffer.empty()) {
-        //window.draw(buffer.front());
-      //  buffer.pop();
-    //}
-    window.draw(background);
+    while (!buffer.empty()) {
+        window.draw(*buffer.front());
+        delete buffer.front();
+        buffer.pop();
+    }
+
+    // window.draw(background);
 }
 
 #endif

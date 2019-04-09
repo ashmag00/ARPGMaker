@@ -1,6 +1,5 @@
 //#include "Map.h"
 #include "inputs.cpp"
-#include "render.cpp"
 
 #ifndef MAIN_CPP
 #define MAIN_CPP
