@@ -1,12 +1,8 @@
 import ARPGMaker
 
-from time import sleep
-
 DEBUG = False
 
 ARPGMaker.init(800, 600, "ARPGMaker Demo Using C++")
-# ARPGMaker.renderImage("assets/testBack.png")
-# ARPGMaker.renderImage("assets/pikachu.png")
 ARPGMaker.loadTexture("assets/testBack.png")
 
 while True:
@@ -25,4 +21,3 @@ while True:
     ARPGMaker.renderImage("assets/testBack.png")
     ARPGMaker.draw()
     ARPGMaker.display()
-# sleep(5)

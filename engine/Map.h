@@ -2,11 +2,13 @@
 #include <SFML/Graphics.hpp>
 #ifndef MAP_H
 #define MAP_H
+
 class Map {
     public:
-        Map(int tileSize, sf::Image background);//Initialize a map
+        Map(int tileSize, char *backgroundFilePath);//Initialize a map
     private:
-        sf::Image background;
+        char *background;
         int tileSize;//Size in pixels of a tile in the map
-}
+};
+
 #endif

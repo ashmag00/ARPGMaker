@@ -3,6 +3,8 @@
 #include <queue>
 #include <unordered_map>
 
+#include "Map.cpp"
+
 #ifndef RENDER_CPP
 #define RENDER_CPP
 /**********************
@@ -12,8 +14,7 @@ using namespace std;
 
 sf::RenderWindow window;
 queue<sf::Sprite*> buffer;
-unordered_map<char *, sf::Texture> textureMap;
-// sf::Sprite background;
+unordered_map<char *, sf::Texture> textureHash;
 
 void display() {
     window.display();
@@ -23,15 +24,11 @@ void loadTexture(char *filePath) {
     sf::Texture tex;
     string fp(filePath);
     if (!tex.loadFromFile(fp)) return;
-    // textureMap.insert(make_pair<char*, sf::Texture>(filePath, tex));
-    textureMap[filePath] = tex;
+    textureHash[filePath] = tex;
 }
 
 void renderImage(char* filePath) {
-    // background.setTexture(tex);
-    // background.setPosition(400.f, 300.f);
-    buffer.push(new sf::Sprite(textureMap[filePath]));
-    // window.draw(background);
+    buffer.push(new sf::Sprite(textureHash[filePath]));
 }
 
 void draw() {
@@ -40,8 +37,6 @@ void draw() {
         delete buffer.front();
         buffer.pop();
     }
-
-    // window.draw(background);
 }
 
 #endif
