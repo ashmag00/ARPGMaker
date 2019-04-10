@@ -1,5 +1,6 @@
 //#include "Map.h"
 #include "inputs.cpp"
+#include "memory.cpp"
 
 #ifndef MAIN_CPP
 #define MAIN_CPP
@@ -9,6 +10,7 @@
  *****************/
 void init(int resX, int resY, char *title) {
     window.create(sf::VideoMode(resX, resY), title);
+    currentID = 0;
 }
 
 /******************

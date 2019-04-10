@@ -31,6 +31,13 @@ void renderImage(char* filePath) {
     buffer.push(new sf::Sprite(textureHash[filePath]));
 }
 
+void renderScene(Map map) {
+    for(auto entity: map.entityList) {
+        loadTexture(entity.texture);
+        renderImage(entity.texture);
+    }
+}
+
 void draw() {
     while (!buffer.empty()) {
         window.draw(*buffer.front());

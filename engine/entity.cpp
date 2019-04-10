@@ -1,4 +1,5 @@
 #include <SFML/Graphics.hpp>
+#include "memory.cpp"
 
 #ifndef ENTITY_CPP
 #define ENTITY_CPP
@@ -32,11 +33,25 @@ class Entity {
         y += (float) numy / (float) deny;
     }
 
-
     float x;
     float y;
+    unsigned int id;
     char *texture;
-    int id;
 };
 
+int createEntity(int posx, int posy) {
+    Entity entity = new Entity(posx, posy);
+    entity.id = currentID;
+    return currentID++;
+}
+
+Entity getByID(Entity entity, unsigned int id) {
+
+}
+
+void setTexture(unsigned int id, char *texturePath) {
+
+}
+
 #endif
+

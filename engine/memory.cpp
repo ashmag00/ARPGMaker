@@ -2,5 +2,6 @@
 #define MEMORY_CPP
 
 // Store global data structures and do memory management
+unsigned int currentID;
 
 #endif
