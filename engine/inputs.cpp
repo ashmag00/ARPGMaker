@@ -1,3 +1,5 @@
+#include <string.h>
+
 #include "render.cpp"
 
 #ifndef INPUTS_CPP

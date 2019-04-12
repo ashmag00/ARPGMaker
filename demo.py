@@ -4,7 +4,12 @@ DEBUG = False
 
 ARPGMaker.init(800, 600, "ARPGMaker Demo Using C++")
 ARPGMaker.loadTexture("assets/testBack.png")
+ARPGMaker.loadTexture("assets/pikachu.png")
 
+ARPGMaker.renderImage("assets/testBack.png")
+ARPGMaker.renderImage("assets/pikachu.png")
+
+# Eventually set to an actual condition
 while True:
     ARPGMaker.systemEventHandler()
 
@@ -18,6 +23,5 @@ while True:
         if ARPGMaker.isKeyPressed('D') == 1:
             print('D')
 
-    ARPGMaker.renderImage("assets/testBack.png")
     ARPGMaker.draw()
     ARPGMaker.display()

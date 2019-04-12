@@ -1,6 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include <list>
-#include "entity.cpp"
+#include "Entity.cpp"
 
 #ifndef MAP_CPP
 #define MAP_CPP
@@ -12,15 +12,14 @@ class Map {
             this->tileSize = tileSize;
         }
 
-        void addEntity(Entity entity) {
-            entityList.push_front(entity);
-        }
+        // void addEntity(Entity entity) {
+        //     entityList.push_front(entity);
+        // }
 
-        void removeEntity(Entity entity) {
-            entityList.remove(entity);
-        }
+        // void removeEntity(Entity entity) {
+        //     entityList.remove(entity);
+        // }
 
-    private:
         std::list<Entity> entityList;
         char *background;
         int tileSize;//Size in pixels of a tile in the map

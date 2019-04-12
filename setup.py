@@ -4,7 +4,7 @@ module = Extension('ARPGMaker',
                    sources = ['ext.cpp'],
                    include_dirs = ['/usr/include/SFML/'],
                    extra_compile_args = ['-std=c++11'],
-                   extra_link_args = ['-std=c++11', '-lsfml-graphics', '-lsfml-window', '-lsfml-system',
+                   extra_link_args = ['-lsfml-graphics', '-lsfml-window', '-lsfml-system',
                                       '-lsfml-audio', '-lsfml-network'],
                    language = 'c++')
 

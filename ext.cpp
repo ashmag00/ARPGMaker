@@ -74,14 +74,14 @@ static PyObject *ARPGMaker_draw(PyObject *self, PyObject *args) {
 }
 
 static PyMethodDef ARPGMakerMethods[] = {
-    {"init", ARPGMaker_init, METH_VARARGS, ""},
-    {"display", ARPGMaker_display, METH_VARARGS, ""},
-    {"close", ARPGMaker_close, METH_VARARGS, ""},
-    {"systemEventHandler", ARPGMaker_systemEventHandler, METH_VARARGS, ""},
-    {"isKeyPressed", ARPGMaker_isKeyPressed, METH_VARARGS, ""},
-    {"renderImage", ARPGMaker_renderImage, METH_VARARGS, ""},
-    {"draw", ARPGMaker_draw, METH_VARARGS, ""},
-    {"loadTexture", ARPGMaker_loadTexture, METH_VARARGS, ""},
+    {"init", ARPGMaker_init, METH_VARARGS, "Initialize the engine"},
+    {"display", ARPGMaker_display, METH_VARARGS, "Display all drawn items in buffer"},
+    {"close", ARPGMaker_close, METH_VARARGS, "Close the game window"},
+    {"systemEventHandler", ARPGMaker_systemEventHandler, METH_VARARGS, "Handle inputs and events"},
+    {"isKeyPressed", ARPGMaker_isKeyPressed, METH_VARARGS, "Checks is a certain key is pressed"},
+    {"renderImage", ARPGMaker_renderImage, METH_VARARGS, "Attach a texture to a sprite"},
+    {"draw", ARPGMaker_draw, METH_VARARGS, "Draws sprite to the didplay buffer"},
+    {"loadTexture", ARPGMaker_loadTexture, METH_VARARGS, "Load and store a texture"},
     {NULL, NULL, 0, NULL}
 };
 

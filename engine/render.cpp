@@ -7,6 +7,7 @@
 
 #ifndef RENDER_CPP
 #define RENDER_CPP
+
 /**********************
  * Rendering system and functions
  *********************/
