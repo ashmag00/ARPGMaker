@@ -73,6 +73,18 @@ static PyObject *ARPGMaker_draw(PyObject *self, PyObject *args) {
     Py_RETURN_NONE;
 }
 
+static PyObject *ARPGMaker_move(PyObject *self, PyObject *args) {
+    int id;
+    int movex;
+    int movey;
+
+    if (!PyArg_ParseTuple(args, "iii", &id, &movex, &movey))
+        return NULL;
+
+    move(id, movex, movey);
+    Py_RETURN_NONE;
+}
+
 static PyMethodDef ARPGMakerMethods[] = {
     {"init", ARPGMaker_init, METH_VARARGS, "Initialize the engine"},
     {"display", ARPGMaker_display, METH_VARARGS, "Display all drawn items in buffer"},
@@ -82,6 +94,7 @@ static PyMethodDef ARPGMakerMethods[] = {
     {"renderImage", ARPGMaker_renderImage, METH_VARARGS, "Attach a texture to a sprite"},
     {"draw", ARPGMaker_draw, METH_VARARGS, "Draws sprite to the didplay buffer"},
     {"loadTexture", ARPGMaker_loadTexture, METH_VARARGS, "Load and store a texture"},
+    {"move", ARPGMaker_move, METH_VARARGS, "Move an Entity in the window"},
     {NULL, NULL, 0, NULL}
 };
 

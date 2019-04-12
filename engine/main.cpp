@@ -1,9 +1,9 @@
-//#include "Map.h"
-#include "inputs.cpp"
-#include "memory.cpp"
-
 #ifndef MAIN_CPP
 #define MAIN_CPP
+
+//#include "Map.h"
+#include "inputs.cpp"
+#include "memory.h"
 
 /******************
  * Initialize the engine

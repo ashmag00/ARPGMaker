@@ -1,12 +1,12 @@
+#ifndef RENDER_CPP
+#define RENDER_CPP
+
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
 #include <queue>
 #include <unordered_map>
 
-#include "Map.cpp"
-
-#ifndef RENDER_CPP
-#define RENDER_CPP
+#include "memory.h"
 
 /**********************
  * Rendering system and functions
@@ -28,12 +28,16 @@ void loadTexture(char *filePath) {
     textureHash[filePath] = tex;
 }
 
+void setBackground(char *filePath) {
+
+}
+
 void renderImage(char* filePath) {
     buffer.push(new sf::Sprite(textureHash[filePath]));
 }
 
-void renderScene(Map map) {
-    for(auto entity: map.entityList) {
+void renderScene() {
+    for(auto entity: g_tmap.entityList) {
         loadTexture(entity.texture);
         renderImage(entity.texture);
     }

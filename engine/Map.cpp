@@ -1,20 +1,21 @@
-#include <SFML/Graphics.hpp>
-#include <list>
-#include "Entity.cpp"
-
 #ifndef MAP_CPP
 #define MAP_CPP
 
+#include <SFML/Graphics.hpp>
+#include <list>
+
+#include "Entity.cpp"
+
 class Map {
     public:
-        Map(char *backgroundFilePath, int tileSize = 0) { //Initialize a map
-            this->background = backgroundFilePath;
+        Map(int tileSize = 0) { //Initialize a map
+            // this->background = backgroundFilePath;
             this->tileSize = tileSize;
         }
 
-        // void addEntity(Entity entity) {
-        //     entityList.push_front(entity);
-        // }
+        void addEntity(Entity entity) {
+            entityList.push_front(entity);
+        }
 
         // void removeEntity(Entity entity) {
         //     entityList.remove(entity);

@@ -1,8 +1,13 @@
-#include <SFML/Graphics.hpp>
-#include "memory.cpp"
-
 #ifndef ENTITY_CPP
 #define ENTITY_CPP
+
+#include <SFML/Graphics.hpp>
+
+// #include "Map.cpp"
+#include "memory.h"
+
+Map g_tmap;
+unsigned int currentID;
 
 class Entity {
     public:
@@ -46,13 +51,21 @@ int createEntity(int posx, int posy) {
     return currentID++;
 }
 
-// Entity getByID(Entity entity, unsigned int id) {
+Entity getByID(unsigned int id) {
+    for(auto entity: g_tmap.entityList) {
+        if (entity.id == id) {
+            return entity;
+        }
+    }
+}
 
-// }
+void move(int id, int posx, int posy) {
+    Entity tmp = getByID(id);
+    tmp.move(posx, posy);
+}
 
 void setTexture(unsigned int id, char *texturePath) {
 
 }
 
 #endif
-

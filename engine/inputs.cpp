@@ -1,9 +1,10 @@
+#ifndef INPUTS_CPP
+#define INPUTS_CPP
+
 #include <string.h>
 
 #include "render.cpp"
 
-#ifndef INPUTS_CPP
-#define INPUTS_CPP
 using namespace std;
 
 int isKeyPressed(char *key) {
