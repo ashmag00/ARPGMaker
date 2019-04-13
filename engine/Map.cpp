@@ -1,29 +1,17 @@
 #ifndef MAP_CPP
 #define MAP_CPP
+#include "map.h"
 
-#include <SFML/Graphics.hpp>
-#include <list>
+Map::Map(int tileSize = 0) { //Initialize a map
+    // this->background = backgroundFilePath;
+    this->tileSize = tileSize;
+}
 
-#include "Entity.cpp"
+void Map::addEntity(Entity entity) {
+    entityList.push_front(entity);
+}
 
-class Map {
-    public:
-        Map(int tileSize = 0) { //Initialize a map
-            // this->background = backgroundFilePath;
-            this->tileSize = tileSize;
-        }
-
-        void addEntity(Entity entity) {
-            entityList.push_front(entity);
-        }
-
-        // void removeEntity(Entity entity) {
-        //     entityList.remove(entity);
-        // }
-
-        std::list<Entity> entityList;
-        char *background;
-        int tileSize;//Size in pixels of a tile in the map
-};
-
+// void Map::removeEntity(Entity entity) {
+//     entityList.remove(entity);
+// }
 #endif
