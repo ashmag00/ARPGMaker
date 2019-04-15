@@ -3,10 +3,10 @@
 
 #include <SFML/Graphics.hpp>
 
-// #include "Map.cpp"
+#include "Map.h"
 #include "memory.h"
 
-Map g_tmap;
+// Map g_tmap;
 unsigned int currentID;
 
 class Entity {

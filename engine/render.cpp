@@ -37,10 +37,10 @@ void renderImage(char* filePath) {
 }
 
 void renderScene() {
-    for(auto entity: g_tmap.entityList) {
-        loadTexture(entity.texture);
-        renderImage(entity.texture);
-    }
+    // for(auto entity: g_tmap.entityList) {
+    //     loadTexture(entity.texture);
+    //     renderImage(entity.texture);
+    // }
 }
 
 void draw() {
