@@ -1,12 +1,12 @@
-#ifndef ENTITY_CPP
-#define ENTITY_CPP
-
 #include "Entity.h"
+extern Map demoMap;
+unsigned int currentID;
 
 // Class Methods
 Entity::Entity(int posx, int posy) {
     x = (float) posx;
     y = (float) posy;
+    demoMap.addEntity(this);
 }
 
 // Entity(Tile tile) {
@@ -48,7 +48,7 @@ int createEntity(int posx, int posy) {
 // }
 
 void move(int id, int posx, int posy) {
-    // Entity tmp = getByID(id);
+    // tity tmp = getByID(id);
     // tmp.move(posx, posy);
 }
 
@@ -56,4 +56,3 @@ void setTexture(unsigned int id, char *texturePath) {
 
 }
 
-#endif

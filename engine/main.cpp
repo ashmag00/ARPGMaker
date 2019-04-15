@@ -1,9 +1,12 @@
-#ifndef MAIN_CPP
-#define MAIN_CPP
+#include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 
-//#include "Map.h"
-#include "inputs.cpp"
+#include "Map.h"
+#include "inputs.h"
 #include "memory.h"
+#include "render.h"
+
+#include "main.h"
 
 /******************
  * Initialize the engine
@@ -32,4 +35,3 @@ void systemEventHandler() {
     }
 }
 
-#endif

@@ -1,21 +1,17 @@
-#ifndef RENDER_CPP
-#define RENDER_CPP
-
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
-#include <queue>
-#include <unordered_map>
+#include <string>
 
 #include "memory.h"
+#include "render.h"
+extern Map demoMap;
 
 /**********************
  * Rendering system and functions
  *********************/
-using namespace std;
-
 sf::RenderWindow window;
-queue<sf::Sprite*> buffer;
-unordered_map<char *, sf::Texture> textureHash;
+std::queue<sf::Sprite*> buffer;
+std::unordered_map<char *, sf::Texture> textureHash;
 
 void display() {
     window.display();
@@ -23,7 +19,7 @@ void display() {
 
 void loadTexture(char *filePath) {
     sf::Texture tex;
-    string fp(filePath);
+    std::string fp(filePath);
     if (!tex.loadFromFile(fp)) return;
     textureHash[filePath] = tex;
 }
@@ -51,4 +47,3 @@ void draw() {
     }
 }
 
-#endif

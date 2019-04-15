@@ -1,9 +1,8 @@
 #ifndef INPUTS_CPP
 #define INPUTS_CPP
-
+#include "inputs.h"
 #include <string.h>
-
-#include "render.cpp"
+#include <SFML/Graphics.hpp>
 
 using namespace std;
 

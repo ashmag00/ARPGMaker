@@ -1,10 +1,8 @@
 #include <Python.h>
-#include <iostream>
-#include <string>
+#include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 
-#include "engine/main.cpp"
-
-using namespace std;
+#include "engine/main.h"
 
 // Extend all developer-level functions to a Python module
 // #1: Create method to read Python arguments and types and call the engine function

@@ -1,7 +1,7 @@
 from distutils.core import setup, Extension
 
 module = Extension('ARPGMaker',
-                   sources = ['ext.cpp'],
+                   sources = ['ext.cpp', 'engine/render.cpp', 'engine/Entity.cpp', 'engine/inputs.cpp', 'engine/main.cpp', 'engine/Map.cpp'],
                    include_dirs = ['/usr/include/SFML/'],
                    extra_compile_args = ['-std=c++11'],
                    extra_link_args = ['-lsfml-graphics', '-lsfml-window', '-lsfml-system',

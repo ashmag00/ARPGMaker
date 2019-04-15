@@ -7,7 +7,7 @@
 #include "memory.h"
 
 // Map g_tmap;
-unsigned int currentID;
+extern unsigned int currentID;
 
 class Entity {
     public:
@@ -24,4 +24,9 @@ class Entity {
         char *texture;
 };
 
+void move(int id, int posx, int posy);
+void setTexture(unsigned int id, char *texturePath);
+
+#else
+class Entity;
 #endif

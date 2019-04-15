@@ -3,17 +3,20 @@
 
 #include <SFML/Graphics.hpp>
 #include <list>
-#include "Entity.cpp"
+#include "Entity.h"
 
 class Map {
     public:
-        Map(int tileSize);//Initialize a map
-        void addEntity(Entity entity);
+        Map(int tileSize = 0);//Initialize a map
+        void addEntity(Entity* entity);
         //void removeEntity(Entity entity);
-        std::list<Entity> entityList;
+        int entityListSize();
+        Entity* getEntityByID(unsigned int entityID);
+        std::list<Entity*> entityList;
     private:
-        char *background;
         int tileSize;//Size in pixels of a tile in the map
+        char *background;
 };
-
+#else
+class Map;
 #endif
