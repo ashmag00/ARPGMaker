@@ -9,11 +9,8 @@ ARPGMaker.init(800, 600, "ARPGMaker Demo Using C++")
 ARPGMaker.loadTexture("assets/testBack.png")
 ARPGMaker.loadTexture("assets/pikachu.png")
 
-
 playerID = ARPGMaker.createEntity(200, 200)
 ARPGMaker.setTexture(playerID, "assets/pikachu.png")
-
-ARPGMaker.move(playerID, 200, 200)
 
 # Eventually set to an actual condition
 while True:
@@ -29,6 +26,12 @@ while True:
     if ARPGMaker.isKeyPressed('D') == 1:
         ARPGMaker.move(playerID, 10, 0)
 
+    ARPGMaker.renderImage("assets/testBack.png")
+    ARPGMaker.renderEntity(playerID)
+    
+    ARPGMaker.draw()
+    ARPGMaker.display()
+
     if DEBUG:
         if ARPGMaker.isKeyPressed('W') == 1:
             print('W')
@@ -38,11 +41,5 @@ while True:
             print('A')
         if ARPGMaker.isKeyPressed('D') == 1:
             print('D')
-
-    ARPGMaker.renderImage("assets/testBack.png")
-    ARPGMaker.renderEntity(playerID)
-    
-    ARPGMaker.draw()
-    ARPGMaker.display()
 
 ARPGMaker.close()

@@ -1,8 +1,7 @@
-#ifndef INPUTS_CPP
-#define INPUTS_CPP
-#include "inputs.h"
-#include <string.h>
 #include <SFML/Graphics.hpp>
+#include <string.h>
+
+#include "inputs.h"
 
 using namespace std;
 
@@ -29,5 +28,3 @@ int isKeyPressed(char *key) {
 
     return 0;
 }
-
-#endif
