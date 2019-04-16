@@ -71,8 +71,41 @@ static PyObject *ARPGMaker_draw(PyObject *self, PyObject *args) {
     Py_RETURN_NONE;
 }
 
+static PyObject *ARPGMaker_createEntity(PyObject *self, PyObject *args) {
+    int posx;
+    int posy;
+    int ret;
+
+    if (!PyArg_ParseTuple(args, "ii", &posx, &posy))
+        return NULL;
+    
+    ret = createEntity(posx, posy);
+    return PyLong_FromLong(ret);
+}
+
+static PyObject *ARPGMaker_setTexture(PyObject *self, PyObject *args) {
+    unsigned int id;
+    char *texturePath;
+
+    if (!PyArg_ParseTuple(args, "is", &id, &texturePath))
+        return NULL;
+
+    setTexture(id, texturePath);
+    Py_RETURN_NONE;
+}
+
+static PyObject *ARPGMaker_renderEntity(PyObject *self, PyObject *args) {
+    unsigned int id;
+
+    if (!PyArg_ParseTuple(args, "i", &id))
+        return NULL;
+
+    renderEntity(id);
+    Py_RETURN_NONE;
+}
+
 static PyObject *ARPGMaker_move(PyObject *self, PyObject *args) {
-    int id;
+    unsigned int id;
     int movex;
     int movey;
 
@@ -80,6 +113,11 @@ static PyObject *ARPGMaker_move(PyObject *self, PyObject *args) {
         return NULL;
 
     move(id, movex, movey);
+    Py_RETURN_NONE;
+}
+
+static PyObject *ARPGMaker_clear(PyObject *self, PyObject *args) {
+    clear();
     Py_RETURN_NONE;
 }
 
@@ -92,7 +130,11 @@ static PyMethodDef ARPGMakerMethods[] = {
     {"renderImage", ARPGMaker_renderImage, METH_VARARGS, "Attach a texture to a sprite"},
     {"draw", ARPGMaker_draw, METH_VARARGS, "Draws sprite to the didplay buffer"},
     {"loadTexture", ARPGMaker_loadTexture, METH_VARARGS, "Load and store a texture"},
+    {"createEntity", ARPGMaker_createEntity, METH_VARARGS, "Create a new Entity"},
+    {"setTexture", ARPGMaker_setTexture, METH_VARARGS, "Assign a texture to an Entity"},
+    {"renderEntity", ARPGMaker_renderEntity, METH_VARARGS, "Attach an Entity to a sprite"},
     {"move", ARPGMaker_move, METH_VARARGS, "Move an Entity in the window"},
+    {"clear", ARPGMaker_clear, METH_VARARGS, "Clear the window"},
     {NULL, NULL, 0, NULL}
 };
 

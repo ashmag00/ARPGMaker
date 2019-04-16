@@ -28,4 +28,3 @@ Entity* Map::getEntityByID(unsigned int entityID) {
 }
 
 Map demoMap;
-

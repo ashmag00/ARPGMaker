@@ -9,6 +9,8 @@ void display();
 void loadTexture(char *filePath);
 void setBackground(char *filePath);
 void renderImage(char *filePath);
+void renderEntity(unsigned int id);
 void renderScene();
 void draw();
+void clear();
 #endif

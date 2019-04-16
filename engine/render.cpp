@@ -28,8 +28,15 @@ void setBackground(char *filePath) {
 
 }
 
-void renderImage(char* filePath) {
+void renderImage(char *filePath) {
     buffer.push(new sf::Sprite(textureHash[filePath]));
+}
+
+void renderEntity(unsigned int id) {
+    Entity *tmp = demoMap.getEntityByID(id);
+    sf::Sprite *entity = new sf::Sprite(textureHash[tmp->texture]);
+    entity->setPosition(tmp->x, tmp->y);
+    buffer.push(entity);
 }
 
 void renderScene() {
@@ -47,3 +54,6 @@ void draw() {
     }
 }
 
+void clear() {
+    window.clear(sf::Color::Black);
+}

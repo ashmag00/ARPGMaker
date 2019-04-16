@@ -1,4 +1,5 @@
 #include "Entity.h"
+
 extern Map demoMap;
 unsigned int currentID;
 
@@ -48,11 +49,11 @@ int createEntity(int posx, int posy) {
 // }
 
 void move(int id, int posx, int posy) {
-    // tity tmp = getByID(id);
-    // tmp.move(posx, posy);
+    Entity *tmp = demoMap.getEntityByID(id);
+    tmp->move(posx, posy);
 }
 
 void setTexture(unsigned int id, char *texturePath) {
-
+    Entity *tmp = demoMap.getEntityByID(id);
+    tmp->setTexture(texturePath);
 }
-

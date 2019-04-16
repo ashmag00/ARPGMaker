@@ -24,6 +24,7 @@ class Entity {
         char *texture;
 };
 
+int createEntity(int posx, int posy);
 void move(int id, int posx, int posy);
 void setTexture(unsigned int id, char *texturePath);
 
