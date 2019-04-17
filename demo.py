@@ -13,7 +13,7 @@ playerID = ARPGMaker.createEntity(200, 200)
 ARPGMaker.setTexture(playerID, "assets/pikachu.png")
 
 # Eventually set to an actual condition
-while True:
+while ARPGMaker.isOpen():
     ARPGMaker.systemEventHandler()
     ARPGMaker.clear()
 

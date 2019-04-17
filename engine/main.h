@@ -8,6 +8,7 @@
 
 void init(int resX, int resY, char *title);
 void close();
+bool isOpen();
 void systemEventHandler();
 
 #endif

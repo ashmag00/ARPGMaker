@@ -3,8 +3,6 @@
 
 #include "inputs.h"
 
-using namespace std;
-
 int isKeyPressed(char *key) {
     if (strcmp(key, "W") == 0 || strcmp(key, "w") == 0) {
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))

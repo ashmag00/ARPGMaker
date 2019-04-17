@@ -23,6 +23,10 @@ void close() {
     window.close();
 }
 
+bool isOpen() {
+    return window.isOpen();
+}
+
 /*****************
  * Handle system events
  ****************/

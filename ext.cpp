@@ -121,6 +121,13 @@ static PyObject *ARPGMaker_clear(PyObject *self, PyObject *args) {
     Py_RETURN_NONE;
 }
 
+static PyObject *ARPGMaker_isOpen(PyObject *self, PyObject *args) {
+    bool ret;
+
+    ret = isOpen();
+    return PyLong_FromLong(ret);
+}
+
 static PyMethodDef ARPGMakerMethods[] = {
     {"init", ARPGMaker_init, METH_VARARGS, "Initialize the engine"},
     {"display", ARPGMaker_display, METH_VARARGS, "Display all drawn items in buffer"},
@@ -135,6 +142,7 @@ static PyMethodDef ARPGMakerMethods[] = {
     {"renderEntity", ARPGMaker_renderEntity, METH_VARARGS, "Attach an Entity to a sprite"},
     {"move", ARPGMaker_move, METH_VARARGS, "Move an Entity in the window"},
     {"clear", ARPGMaker_clear, METH_VARARGS, "Clear the window"},
+    {"isOpen", ARPGMaker_isOpen, METH_VARARGS, "Checks if the window is open"},
     {NULL, NULL, 0, NULL}
 };
 
