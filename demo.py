@@ -6,6 +6,8 @@ DEBUG = False
 ARPGMaker.init(800, 600, "ARPGMaker Demo Using C++")
 
 # Store textures
+assets = "assets/assets.txt"
+# ARPGMaker.loadTexturesFromFile(assets)
 ARPGMaker.loadTexture("assets/testBack.png")
 ARPGMaker.loadTexture("assets/pikachu.png")
 

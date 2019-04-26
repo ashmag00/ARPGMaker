@@ -56,6 +56,16 @@ static PyObject *ARPGMaker_loadTexture(PyObject *self, PyObject *args) {
     Py_RETURN_NONE;
 }
 
+static PyObject *ARPGMaker_loadTexturesFromFile(PyObject *self, PyObject *args) {
+    char *filePath;
+
+    if (!PyArg_ParseTuple(args, "s", &filePath))
+        return NULL;
+
+    loadTexturesFromFile(filePath);
+    Py_RETURN_NONE;
+}
+
 static PyObject *ARPGMaker_renderImage(PyObject *self, PyObject *args) {
     char *filePath;
 
@@ -137,6 +147,7 @@ static PyMethodDef ARPGMakerMethods[] = {
     {"renderImage", ARPGMaker_renderImage, METH_VARARGS, "Attach a texture to a sprite"},
     {"draw", ARPGMaker_draw, METH_VARARGS, "Draws sprite to the didplay buffer"},
     {"loadTexture", ARPGMaker_loadTexture, METH_VARARGS, "Load and store a texture"},
+    {"loadTexturesFromFile", ARPGMaker_loadTexturesFromFile, METH_VARARGS, "Load and store multiple textures"},
     {"createEntity", ARPGMaker_createEntity, METH_VARARGS, "Create a new Entity"},
     {"setTexture", ARPGMaker_setTexture, METH_VARARGS, "Assign a texture to an Entity"},
     {"renderEntity", ARPGMaker_renderEntity, METH_VARARGS, "Attach an Entity to a sprite"},

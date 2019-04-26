@@ -1,9 +1,12 @@
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
-#include <string>
+#include <string.h>
+#include <fstream>
+#include <iostream>
 
 #include "memory.h"
 #include "render.h"
+
 extern Map demoMap;
 
 /**********************
@@ -20,8 +23,25 @@ void display() {
 void loadTexture(char *filePath) {
     sf::Texture tex;
     std::string fp(filePath);
-    if (!tex.loadFromFile(fp)) return;
+    if (!tex.loadFromFile(fp)) {
+        std::cout << "Error: Couldn't load file " << filePath << std::endl;
+        return;
+    }
     textureHash[filePath] = tex;
+}
+
+void loadTexturesFromFile(char *filePath) {
+    std::ifstream file(filePath);
+    std::string line;
+    while (std::getline(file, line)) {
+        // sf::Texture tex;
+        // if (!tex.loadFromFile(line)) return;
+        // char *tmp = strdup(line.c_str());
+        // textureHash[tmp] = tex;
+
+        char *tmp = strdup(line.c_str());
+        loadTexture(tmp);
+    }
 }
 
 void setBackground(char *filePath) {
