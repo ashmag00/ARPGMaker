@@ -4,6 +4,7 @@
 #include <SFML/Graphics.hpp>
 #include <list>
 #include "Entity.h"
+#include "Audio.h"
 
 class Map {
     public:
@@ -13,6 +14,7 @@ class Map {
         int entityListSize();
         Entity* getEntityByID(unsigned int entityID);
         std::list<Entity*> entityList;
+
     private:
         int tileSize;//Size in pixels of a tile in the map
         char *background;
