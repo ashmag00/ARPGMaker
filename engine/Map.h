@@ -4,7 +4,11 @@
 #include <SFML/Graphics.hpp>
 #include <list>
 #include "Entity.h"
-#include "Audio.h"
+
+// GABE: "I included the sound.h and music.h files so that
+//       the list objects I created in them are created."
+#include "Sound.h"
+#include "Music.h"
 
 class Map {
     public:

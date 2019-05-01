@@ -3,42 +3,42 @@
 
 // g++ Audio.cpp -lsfml-graphics -lsfml-window -lsfml-system -I/usr/include/SFML/ -lsfml-audio -lsfml-network
 
-#include "Audio.h"
+#include "Sound.h"
 #include "Map.h"
 
 
-Audio::Audio() {}
-void Audio::setFilePath(char *fileName) {
+Sound::Sound() {}
+void Sound::setFilePath(char *fileName) {
     filePath = fileName;
 }
-int Audio::loadAudioFile(char *fileName) {
+int Sound::loadSoundFile(char *fileName) {
     setFilePath(fileName);
     if (!buffer.loadFromFile(filePath)) {
         return -1;
     }
     return 1;
 }
-void Audio::setBuffer() {
+void Sound::setBuffer() {
     sound.setBuffer(buffer);
 }
-void Audio::playAudio() {
+void Sound::playSound() {
     this->setBuffer();
     sound.play();   
 }
 
-char * createAudio(char *fileName) {
-    Audio *audio = new Audio();
-    audio->loadAudioFile(fileName);
+char * createSound(char *fileName) {
+    Sound *sound = new Sound();
+    sound->loadSoundFile(fileName);
 
-    audioList.push_front(audio);
+    soundList.push_front(sound);
 
     return fileName;
 }
-void playAudio(char *filePath) {
-    getAudioByFilePath("../assets/parry.wav")->playAudio();
+void playSound(char *filePath) {
+    getSoundByFilePath("../assets/parry.wav")->playSound();
 }
-Audio* getAudioByFilePath(char *filePath) {
-    for(std::list<Audio*>::iterator it=audioList.begin(); it != audioList.end(); ++it) {
+Sound* getSoundByFilePath(char *filePath) {
+    for(std::list<Sound*>::iterator it=soundList.begin(); it != soundList.end(); ++it) {
         if((*it)->filePath == filePath) {
             return *it;
         }
@@ -56,8 +56,8 @@ int main() {
     cough->playAudio();*/
 
 
-    char *file = createAudio("../assets/parry.wav");
-    playAudio("../assets/parry.wav");
+    char *file = createSound("../assets/parry.wav");
+    playSound("../assets/parry.wav");
 
     //FIXME: NEXT STEPS, CHANNELING AUDIO
 
