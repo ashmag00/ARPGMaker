@@ -10,6 +10,7 @@ class Sound {
         int loadSoundFile(char *fileName);
         void setBuffer();
         void playSound();
+        void pauseSound();
 
         // Used for DEBUGGING
         int main();
@@ -21,6 +22,7 @@ class Sound {
 
 char * createSound(char *fileName);
 void playSound(char *filePath);
+void pauseSound(char *filePath);
 Sound* getSoundByFilePath(char *filePath);
 
 #else

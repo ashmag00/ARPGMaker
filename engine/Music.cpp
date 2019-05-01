@@ -1,7 +1,8 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 
-// g++ Audio.cpp -lsfml-graphics -lsfml-window -lsfml-system -I/usr/include/SFML/ -lsfml-audio -lsfml-network
+// Console command to compile for debugging:
+// g++ Music.cpp -lsfml-graphics -lsfml-window -lsfml-system -I/usr/include/SFML/ -lsfml-audio -lsfml-network
 
 #include "Music.h"
 #include "Map.h"
@@ -18,14 +19,9 @@ int Music::openMusicFile(char *fileName) {
     }
     return 1;
 }
-/*void Music::setBuffer() {
-    music.setBuffer(buffer);
-}*/
 void Music::playMusic() {
-    //this->setBuffer();
     music.play();   
 }
-
 char * createMusic(char *fileName) {
     Music *music = new Music();
     music->openMusicFile(fileName);

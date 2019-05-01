@@ -1,7 +1,8 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 
-// g++ Audio.cpp -lsfml-graphics -lsfml-window -lsfml-system -I/usr/include/SFML/ -lsfml-audio -lsfml-network
+// Console command to compile for debugging:
+// g++ Sound.cpp -lsfml-graphics -lsfml-window -lsfml-system -I/usr/include/SFML/ -lsfml-audio -lsfml-network
 
 #include "Sound.h"
 #include "Map.h"
@@ -25,6 +26,10 @@ void Sound::playSound() {
     this->setBuffer();
     sound.play();   
 }
+void Sound::pauseSound() {
+    //this->setBuffer();
+    sound.pause();   
+}
 
 char * createSound(char *fileName) {
     Sound *sound = new Sound();
@@ -36,6 +41,9 @@ char * createSound(char *fileName) {
 }
 void playSound(char *filePath) {
     getSoundByFilePath("../assets/parry.wav")->playSound();
+}
+void pauseSound(char *filePath) {
+    getSoundByFilePath("../assets/parry.wav")->pauseSound();
 }
 Sound* getSoundByFilePath(char *filePath) {
     for(std::list<Sound*>::iterator it=soundList.begin(); it != soundList.end(); ++it) {
@@ -55,9 +63,13 @@ int main() {
     cough->loadAudioFile("../assets/ahem.wav");
     cough->playAudio();*/
 
-
     char *file = createSound("../assets/parry.wav");
+    
+    sf::Clock clock;
     playSound("../assets/parry.wav");
+    while ( clock.getElapsedTime() < sf::milliseconds(500) ) {}
+    pauseSound("../assets/parry.wav");
+
 
     //FIXME: NEXT STEPS, CHANNELING AUDIO
 
