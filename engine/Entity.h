@@ -16,7 +16,7 @@ class Entity {
         void setTexture(char *texturePath);
         void setPosition(int posx, int posy);
         void move(int movex, int movey);
-        void move(int numx, int denx, int numy, int deny);
+        void movef(int numx, int denx, int numy, int deny);
 
         float x;
         float y;
@@ -26,6 +26,7 @@ class Entity {
 
 int createEntity(int posx, int posy);
 void move(int id, int posx, int posy);
+void movef(int id, int numx, int denx, int numy, int deny);
 void setTexture(unsigned int id, char *texturePath);
 
 #else
