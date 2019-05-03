@@ -1,11 +1,8 @@
-#include <SFML/Graphics.hpp>
-#include <SFML/Audio.hpp>
 
 // Console command to compile for debugging:
 // g++ Music.cpp -lsfml-graphics -lsfml-window -lsfml-system -I/usr/include/SFML/ -lsfml-audio -lsfml-network
 
 #include "Music.h"
-#include "Map.h"
 
 
 Music::Music() {}
@@ -41,13 +38,13 @@ Music* getMusicByFilePath(char *filePath) {
 }
 
 
-int main() {
-    /*Audio *parry = new Audio();
+/*int main() {
+    Audio *parry = new Audio();
     parry->loadAudioFile("../assets/parry.wav");
     parry->playAudio();
     Audio *cough = new Audio();
     cough->loadAudioFile("../assets/ahem.wav");
-    cough->playAudio();*/
+    cough->playAudio();
 
 
     char *file = createMusic("../assets/parry.wav");
@@ -58,5 +55,5 @@ int main() {
     while(true) {}
 
     return 1;
-}
+}*/
 

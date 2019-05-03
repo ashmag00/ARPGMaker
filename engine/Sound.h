@@ -1,6 +1,13 @@
 #ifndef SOUND_H
 #define SOUND_H
 
+// Console command to compile for debugging:
+// g++ Sound.cpp -lsfml-graphics -lsfml-window -lsfml-system -I/usr/include/SFML/ -lsfml-audio -lsfml-network
+
+#include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
+#include "Map.h"
+
 
 class Sound {
     public:
@@ -13,7 +20,7 @@ class Sound {
         void pauseSound();
 
         // Used for DEBUGGING
-        int main();
+        //int main();
 
         char *filePath;
         sf::SoundBuffer buffer;
@@ -21,6 +28,7 @@ class Sound {
 };
 
 char * createSound(char *fileName);
+void setBuffer(char *filePath);
 void playSound(char *filePath);
 void pauseSound(char *filePath);
 Sound* getSoundByFilePath(char *filePath);

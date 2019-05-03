@@ -1,6 +1,13 @@
 #ifndef MUSIC_H
 #define MUSIC_H
 
+// Console command to compile for debugging:
+// g++ Music.cpp -lsfml-graphics -lsfml-window -lsfml-system -I/usr/include/SFML/ -lsfml-audio -lsfml-network
+
+#include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
+#include "Map.h"
+
 class Music {
     public:
         Music();
@@ -9,7 +16,7 @@ class Music {
         void playMusic();
 
         // Used for DEBUGGING
-        int main();
+        //int main();
 
         char *filePath;
         sf::Music music;
