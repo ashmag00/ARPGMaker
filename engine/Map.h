@@ -7,6 +7,11 @@
 #include "Tile.h"
 #include "Entity.h"
 
+// GABE: "I included the sound.h and music.h files so that
+//       the list objects I created in them are created."
+#include "Sound.h"
+#include "Music.h"
+
 class Map {
     public:
         Map(int tileSize = 0, int tileX = 0, int tileY = 0);//Initialize a map

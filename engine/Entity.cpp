@@ -32,7 +32,7 @@ void Entity::move(int movex, int movey) {
     y += (float) movey;
 }
 
-void Entity::move(int numx, int denx, int numy, int deny) {
+void Entity::movef(int numx, int denx, int numy, int deny) {
     x += (float) numx / (float) denx;
     y += (float) numy / (float) deny;
 }
@@ -55,6 +55,11 @@ int createEntity(int posx, int posy) {
 void move(int id, int posx, int posy) {
     Entity *tmp = demoMap.getEntityByID(id);
     tmp->move(posx, posy);
+}
+
+void movef(int id, int numx, int denx, int numy, int deny) {
+    Entity *tmp = demoMap.getEntityByID(id);
+    tmp->movef(numx, denx, numy, deny);
 }
 
 void setTexture(unsigned int id, char *texturePath) {

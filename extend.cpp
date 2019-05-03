@@ -126,6 +126,20 @@ static PyObject *ARPGMaker_move(PyObject *self, PyObject *args) {
     Py_RETURN_NONE;
 }
 
+static PyOject *ARPGMaker_movef(PyObject *self, PyObject *args) {
+    unsigned int id;
+    int numx;
+    int denx;
+    int numy;
+    int deny;
+
+    if (!PyArg_ParseTuple(args, "iiiii", &id, &numx, &denx, &numy, &deny))
+        return NULL;
+
+    movef(id, numx, denx, numy, deny);
+    Py_RETURN_NONE;
+}
+
 static PyObject *ARPGMaker_clear(PyObject *self, PyObject *args) {
     clear();
     Py_RETURN_NONE;
@@ -152,6 +166,7 @@ static PyMethodDef ARPGMakerMethods[] = {
     {"setTexture", ARPGMaker_setTexture, METH_VARARGS, "Assign a texture to an Entity"},
     {"renderEntity", ARPGMaker_renderEntity, METH_VARARGS, "Attach an Entity to a sprite"},
     {"move", ARPGMaker_move, METH_VARARGS, "Move an Entity in the window"},
+    {"movef", ARPGMaker_movef, METH_VARARGS, "Meve an Entity in the window precisely"},
     {"clear", ARPGMaker_clear, METH_VARARGS, "Clear the window"},
     {"isOpen", ARPGMaker_isOpen, METH_VARARGS, "Checks if the window is open"},
     {NULL, NULL, 0, NULL}

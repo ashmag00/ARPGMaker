@@ -18,7 +18,7 @@ class Entity {
         void setPosition(int posx, int posy);
         void setTile(Tile* tile);
         void move(int movex, int movey);
-        void move(int numx, int denx, int numy, int deny);
+        void movef(int numx, int denx, int numy, int deny);
     //private:
         Tile* tile;
         float x;
@@ -30,6 +30,7 @@ class Entity {
 
 int createEntity(int posx, int posy);
 void move(int id, int posx, int posy);
+void movef(int id, int numx, int denx, int numy, int deny);
 void setTexture(unsigned int id, char *texturePath);
 
 #else
