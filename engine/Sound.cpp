@@ -1,5 +1,4 @@
 
-
 // Console command to compile for debugging:
 // g++ Sound.cpp -lsfml-graphics -lsfml-window -lsfml-system -I/usr/include/SFML/ -lsfml-audio -lsfml-network
 
@@ -21,24 +20,20 @@ void Sound::setBuffer() {
     sound.setBuffer(buffer);
 }
 void Sound::playSound() {
-    //this->setBuffer();
     sound.play();   
 }
 void Sound::pauseSound() {
-    //this->setBuffer();
     sound.pause();   
 }
-/*void Sound::stopSound() {
+void Sound::stopSound() {
     sound.stop();
-}*/
+}
 
 
 char * createSound(char *fileName) {
     Sound *sound = new Sound();
     sound->loadSoundFile(fileName);
-
     soundList.push_front(sound);
-
     return fileName;
 }
 void setBuffer(char *filePath) {
@@ -50,9 +45,9 @@ void playSound(char *filePath) {
 void pauseSound(char *filePath) {
     getSoundByFilePath("../assets/parry.wav")->pauseSound();
 }
-/*void stopSound(char *filePath) {
+void stopSound(char *filePath) {
     getSoundByFilePath("../assets/parry.wav")->stopSound();
-}*/
+}
 Sound* getSoundByFilePath(char *filePath) {
     for(std::list<Sound*>::iterator it=soundList.begin(); it != soundList.end(); ++it) {
         if((*it)->filePath == filePath) {
@@ -63,13 +58,13 @@ Sound* getSoundByFilePath(char *filePath) {
 }
 
 
-/*int main() {
-    Audio *parry = new Audio();
-    parry->loadAudioFile("../assets/parry.wav");
-    parry->playAudio();
-    Audio *cough = new Audio();
-    cough->loadAudioFile("../assets/ahem.wav");
-    cough->playAudio();
+int main() {
+    //Audio *parry = new Audio();
+    //parry->loadAudioFile("../assets/parry.wav");
+    //parry->playAudio();
+    //Audio *cough = new Audio();
+    //cough->loadAudioFile("../assets/ahem.wav");
+    //cough->playAudio();
 
     char *file = createSound("../assets/parry.wav");
     
@@ -78,15 +73,14 @@ Sound* getSoundByFilePath(char *filePath) {
     playSound(file);
     while ( clock.getElapsedTime() < sf::milliseconds(500) ) {}
     pauseSound(file);
-    while ( clock.getElapsedTime() < sf::milliseconds(750) ) {}
+    while ( clock.getElapsedTime() < sf::milliseconds(650) ) {}
+    stopSound(file);
     playSound(file);
-
-
 
     //FIXME: NEXT STEPS, CHANNELING AUDIO
 
     while(true) {}
 
     return 1;
-}*/
+}
 

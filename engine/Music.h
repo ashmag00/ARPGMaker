@@ -14,9 +14,11 @@ class Music {
         void setFilePath(char *fileName);
         int openMusicFile(char *fileName);
         void playMusic();
+        void pauseMusic();
+        void stopMusic();
 
         // Used for DEBUGGING
-        //int main();
+        int main();
 
         char *filePath;
         sf::Music music;
@@ -24,6 +26,8 @@ class Music {
 
 char * createMusic(char *fileName);
 void playMusic(char *filePath);
+void pauseMusic(char *filePath);
+void stopMusic(char *filePath);
 Music* getMusicByFilePath(char *filePath);
 
 #else

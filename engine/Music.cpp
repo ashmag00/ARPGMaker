@@ -19,6 +19,14 @@ int Music::openMusicFile(char *fileName) {
 void Music::playMusic() {
     music.play();   
 }
+void Music::pauseMusic() {
+    music.pause();   
+}
+void Music::stopMusic() {
+    music.stop();   
+}
+
+
 char * createMusic(char *fileName) {
     Music *music = new Music();
     music->openMusicFile(fileName);
@@ -27,6 +35,12 @@ char * createMusic(char *fileName) {
 }
 void playMusic(char *filePath) {
     getMusicByFilePath("../assets/parry.wav")->playMusic();
+}
+void pauseMusic(char *filePath) {
+    getMusicByFilePath("../assets/parry.wav")->pauseMusic();
+}
+void stopMusic(char *filePath) {
+    getMusicByFilePath("../assets/parry.wav")->stopMusic();
 }
 Music* getMusicByFilePath(char *filePath) {
     for(std::list<Music*>::iterator it=musicList.begin(); it != musicList.end(); ++it) {
@@ -38,22 +52,30 @@ Music* getMusicByFilePath(char *filePath) {
 }
 
 
-/*int main() {
-    Audio *parry = new Audio();
-    parry->loadAudioFile("../assets/parry.wav");
-    parry->playAudio();
-    Audio *cough = new Audio();
-    cough->loadAudioFile("../assets/ahem.wav");
-    cough->playAudio();
+int main() {
+    //Audio *parry = new Audio();
+    //parry->loadAudioFile("../assets/parry.wav");
+    //parry->playAudio();
+    //Audio *cough = new Audio();
+    //cough->loadAudioFile("../assets/ahem.wav");
+    //cough->playAudio();
 
 
     char *file = createMusic("../assets/parry.wav");
-    playMusic("../assets/parry.wav");
+
+    sf::Clock clock;
+
+    playMusic(file);
+    while ( clock.getElapsedTime() < sf::milliseconds(500) ) {}
+    pauseMusic(file);
+    while ( clock.getElapsedTime() < sf::milliseconds(650) ) {}
+    stopMusic(file);
+    playMusic(file);
 
     //FIXME: NEXT STEPS, CHANNELING AUDIO
 
     while(true) {}
 
     return 1;
-}*/
+}
 

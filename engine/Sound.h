@@ -8,16 +8,15 @@
 #include <SFML/Audio.hpp>
 #include "Map.h"
 
-
 class Sound {
     public:
         Sound();
-        //void setFilePath(char *filePath);
         void setFilePath(char *fileName);
         int loadSoundFile(char *fileName);
         void setBuffer();
         void playSound();
         void pauseSound();
+        void stopSound();
 
         // Used for DEBUGGING
         //int main();
@@ -31,11 +30,10 @@ char * createSound(char *fileName);
 void setBuffer(char *filePath);
 void playSound(char *filePath);
 void pauseSound(char *filePath);
+void stopSound(char *filePath);
 Sound* getSoundByFilePath(char *filePath);
 
 #else
-
 class Sound;
 std::list<Sound*> soundList;
-
 #endif
