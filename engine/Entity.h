@@ -5,6 +5,7 @@
 
 #include "Map.h"
 #include "memory.h"
+#include "Tile.h"
 
 // Map g_tmap;
 extern unsigned int currentID;
@@ -15,13 +16,16 @@ class Entity {
         // Entity(Tile tile);
         void setTexture(char *texturePath);
         void setPosition(int posx, int posy);
+        void setTile(Tile* tile);
         void move(int movex, int movey);
         void move(int numx, int denx, int numy, int deny);
-
+    //private:
+        Tile* tile;
         float x;
         float y;
         unsigned int id;
         char *texture;
+        friend class Map;
 };
 
 int createEntity(int posx, int posy);

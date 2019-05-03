@@ -23,6 +23,10 @@ void Entity::setPosition(int posx, int posy) {
     y = (float) posy;
 }
 
+void Entity::setTile(Tile* tile) {
+    this->tile = tile;
+}
+
 void Entity::move(int movex, int movey) {
     x += (float) movex;
     y += (float) movey;

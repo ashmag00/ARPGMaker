@@ -2,14 +2,18 @@
 #define TILE_H
 
 #include <stack>
+#include <list>
+#include "Entity.h"
 
 class Tile {
-    Tile(int size);
-    void setTexture(char *filePath);
-
-    int size;
-    unsigned int typeID;
-    char *texture;
+    public:
+        Tile(int size);
+        void setTexture(char *filePath);
+        void setTypeID(unsigned int typeID);
+    private:
+        int size;
+        unsigned int typeID;
+        char *texture;
 };
 
 #else
