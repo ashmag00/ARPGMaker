@@ -46,4 +46,9 @@ Entity* Map::getEntityByID(unsigned int entityID) {
     return NULL;
 }
 
+void createMap(int tileSize, int tileX, int tileY) {
+    Map *map = new Map(tileSize, tileX, tileY);
+    demoMap = *map;
+}
+
 Map demoMap;

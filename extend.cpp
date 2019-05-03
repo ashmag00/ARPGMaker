@@ -93,6 +93,17 @@ static PyObject *ARPGMaker_createEntity(PyObject *self, PyObject *args) {
     return PyLong_FromLong(ret);
 }
 
+static PyObject *ARPGMaker_createMap(PyObject *self, PyObject *args) {
+    int tileSize;
+    int tileX;
+    int tileY;
+
+    if (!PyArg_ParseTuple(args, "iii", &tileSize, &tileX, &tileY))
+        return NULL;
+
+    Py_RETURN_NONE;
+}
+
 static PyObject *ARPGMaker_setTexture(PyObject *self, PyObject *args) {
     unsigned int id;
     char *texturePath;
@@ -126,7 +137,7 @@ static PyObject *ARPGMaker_move(PyObject *self, PyObject *args) {
     Py_RETURN_NONE;
 }
 
-static PyOject *ARPGMaker_movef(PyObject *self, PyObject *args) {
+static PyObject *ARPGMaker_movef(PyObject *self, PyObject *args) {
     unsigned int id;
     int numx;
     int denx;
@@ -163,6 +174,7 @@ static PyMethodDef ARPGMakerMethods[] = {
     {"loadTexture", ARPGMaker_loadTexture, METH_VARARGS, "Load and store a texture"},
     {"loadTexturesFromFile", ARPGMaker_loadTexturesFromFile, METH_VARARGS, "Load and store multiple textures"},
     {"createEntity", ARPGMaker_createEntity, METH_VARARGS, "Create a new Entity"},
+    {"createMap", ARPGMaker_createMap, METH_VARARGS, "Create a new Map"},
     {"setTexture", ARPGMaker_setTexture, METH_VARARGS, "Assign a texture to an Entity"},
     {"renderEntity", ARPGMaker_renderEntity, METH_VARARGS, "Attach an Entity to a sprite"},
     {"move", ARPGMaker_move, METH_VARARGS, "Move an Entity in the window"},

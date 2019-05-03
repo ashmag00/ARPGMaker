@@ -11,6 +11,7 @@ assets = "assets/assets.txt"
 ARPGMaker.loadTexture("assets/testBack.png")
 ARPGMaker.loadTexture("assets/pikachu.png")
 
+print('HERE')
 playerID = ARPGMaker.createEntity(200, 200)
 ARPGMaker.setTexture(playerID, "assets/pikachu.png")
 

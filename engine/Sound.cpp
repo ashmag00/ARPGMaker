@@ -58,7 +58,7 @@ Sound* getSoundByFilePath(char *filePath) {
 }
 
 
-int main() {
+int main3() {
     //Audio *parry = new Audio();
     //parry->loadAudioFile("../assets/parry.wav");
     //parry->playAudio();
