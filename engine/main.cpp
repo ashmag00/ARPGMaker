@@ -8,12 +8,15 @@
 
 #include "main.h"
 
+extern Map demoMap;
+
 /******************
  * Initialize the engine
  *****************/
-void init(int resX, int resY, char *title) {
+void init(int resX, int resY, int tileSize, char *title) {
     window.create(sf::VideoMode(resX, resY), title);
     currentID = 0;
+    Map demoMap = *(new Map(tileSize, 1, 1));
 }
 
 /******************

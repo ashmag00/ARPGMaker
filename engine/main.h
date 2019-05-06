@@ -6,7 +6,7 @@
 #include "Entity.h"
 #include "Map.h"
 
-void init(int resX, int resY, char *title);
+void init(int resX, int resY, int tileSize, char *title);
 void close();
 bool isOpen();
 void systemEventHandler();
