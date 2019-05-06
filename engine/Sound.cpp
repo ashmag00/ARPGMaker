@@ -20,7 +20,7 @@ void Sound::setBuffer() {
     sound.setBuffer(buffer);
 }
 void Sound::playSound() {
-    sound.play();   
+    sound.play();
 }
 void Sound::pauseSound() {
     sound.pause();   
@@ -58,7 +58,7 @@ Sound* getSoundByFilePath(char *filePath) {
 }
 
 
-int main3() {
+/*int main3() {
     //Audio *parry = new Audio();
     //parry->loadAudioFile("../assets/parry.wav");
     //parry->playAudio();
@@ -82,5 +82,5 @@ int main3() {
     while(true) {}
 
     return 1;
-}
+}*/
 

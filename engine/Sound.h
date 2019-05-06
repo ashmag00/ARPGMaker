@@ -19,7 +19,7 @@ class Sound {
         void stopSound();
 
         // Used for DEBUGGING
-        int main3();
+        //int main3();
 
         char *filePath;
         sf::SoundBuffer buffer;
