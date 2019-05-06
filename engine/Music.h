@@ -18,7 +18,7 @@ class Music {
         void stopMusic();
 
         // Used for DEBUGGING
-        //int main2();
+        int main2();
 
         char *filePath;
         sf::Music music;

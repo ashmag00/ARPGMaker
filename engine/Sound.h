@@ -17,9 +17,11 @@ class Sound {
         void playSound();
         void pauseSound();
         void stopSound();
+        void setLoop(int setting);
+        void setVolume(unsigned int vol);
 
         // Used for DEBUGGING
-        //int main3();
+        //int main();
 
         char *filePath;
         sf::SoundBuffer buffer;
@@ -31,6 +33,8 @@ void setBuffer(char *filePath);
 void playSound(char *filePath);
 void pauseSound(char *filePath);
 void stopSound(char *filePath);
+void setLoop(char *filePath, int setting);
+void setVolume(char *filePath, unsigned int vol);
 Sound* getSoundByFilePath(char *filePath);
 
 #else

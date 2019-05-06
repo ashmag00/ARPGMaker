@@ -28,6 +28,16 @@ void Sound::pauseSound() {
 void Sound::stopSound() {
     sound.stop();
 }
+void Sound::setLoop(int setting) {
+    if (setting == 1){
+        sound.setLoop(true);
+    } else {
+        sound.setLoop(false);
+    }
+}
+void Sound::setVolume(unsigned int vol) {
+    sound.setVolume(vol);
+}
 
 
 char * createSound(char *fileName) {
@@ -37,16 +47,22 @@ char * createSound(char *fileName) {
     return fileName;
 }
 void setBuffer(char *filePath) {
-    getSoundByFilePath("../assets/parry.wav")->setBuffer();
+    getSoundByFilePath(filePath)->setBuffer();
 }
 void playSound(char *filePath) {
-    getSoundByFilePath("../assets/parry.wav")->playSound();
+    getSoundByFilePath(filePath)->playSound();
 }
 void pauseSound(char *filePath) {
-    getSoundByFilePath("../assets/parry.wav")->pauseSound();
+    getSoundByFilePath(filePath)->pauseSound();
 }
 void stopSound(char *filePath) {
-    getSoundByFilePath("../assets/parry.wav")->stopSound();
+    getSoundByFilePath(filePath)->stopSound();
+}
+void setLoop(char *filePath, int setting) {
+    getSoundByFilePath(filePath)->setLoop(setting);
+}
+void setVolume(char *filePath, unsigned int vol) {
+    getSoundByFilePath(filePath)->setVolume(vol);
 }
 Sound* getSoundByFilePath(char *filePath) {
     for(std::list<Sound*>::iterator it=soundList.begin(); it != soundList.end(); ++it) {
@@ -58,7 +74,7 @@ Sound* getSoundByFilePath(char *filePath) {
 }
 
 
-/*int main3() {
+/*int main() {
     //Audio *parry = new Audio();
     //parry->loadAudioFile("../assets/parry.wav");
     //parry->playAudio();
@@ -69,12 +85,21 @@ Sound* getSoundByFilePath(char *filePath) {
     char *file = createSound("../assets/parry.wav");
     
     setBuffer(file);
+
     sf::Clock clock;
+
+    setVolume(file,100);
+    setLoop(file,1);
     playSound(file);
+
     while ( clock.getElapsedTime() < sf::milliseconds(500) ) {}
-    pauseSound(file);
-    while ( clock.getElapsedTime() < sf::milliseconds(650) ) {}
-    stopSound(file);
+    setVolume(file,33);
+    playSound(file);
+    while ( clock.getElapsedTime() < sf::milliseconds(1000) ) {}
+    setVolume(file,66);
+    playSound(file);
+    while ( clock.getElapsedTime() < sf::milliseconds(1500) ) {}
+    setVolume(file,99);
     playSound(file);
 
     //FIXME: NEXT STEPS, CHANNELING AUDIO

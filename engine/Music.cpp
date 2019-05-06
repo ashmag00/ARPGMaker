@@ -52,7 +52,7 @@ Music* getMusicByFilePath(char *filePath) {
 }
 
 
-/*int main2() {
+int main2() {
     //Audio *parry = new Audio();
     //parry->loadAudioFile("../assets/parry.wav");
     //parry->playAudio();
@@ -77,5 +77,5 @@ Music* getMusicByFilePath(char *filePath) {
     while(true) {}
 
     return 1;
-}*/
+}
 
