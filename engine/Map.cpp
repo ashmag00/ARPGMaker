@@ -33,7 +33,7 @@ int Map::entityListSize() {
 }
 
 Tile* Map::accessTile(int x, int y) {
-    return tileList[y*this->tileX + x];
+    return tileList[y*(this->tileX) + x];
 }
 
 Entity* Map::getEntityByID(unsigned int entityID) {

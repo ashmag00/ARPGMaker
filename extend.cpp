@@ -11,12 +11,13 @@
 static PyObject *ARPGMaker_init(PyObject *self, PyObject *args) {
     int resX;
     int resY;
+    int tileSize;
     char *title;
 
-    if (!PyArg_ParseTuple(args, "iis", &resX, &resY, &title))
+    if (!PyArg_ParseTuple(args, "iiis", &resX, &resY, &tileSize, &title))
         return NULL;
         
-    init(resX, resY, title);
+    init(resX, resY, tileSize, title);
     Py_RETURN_NONE;
 }
 
