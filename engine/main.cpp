@@ -1,11 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 
-#include "Map.h"
-#include "inputs.h"
-#include "memory.h"
-#include "render.h"
-
 #include "main.h"
 
 extern Map demoMap;
