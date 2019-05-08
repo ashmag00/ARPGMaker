@@ -11,7 +11,9 @@ extern Map demoMap;
 void init(int resX, int resY, int tileSize, char *title) {
     window.create(sf::VideoMode(resX, resY), title);
     currentID = 0;
-    demoMap = *(new Map(tileSize, 1, 1));
+    int tileX = ceil((float) resX / tileSize);
+    int tileY = ceil((float) resY / tileSize);
+    demoMap = *(new Map(tileSize, tileX, tileY));
 }
 
 /******************
