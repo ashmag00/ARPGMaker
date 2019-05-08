@@ -4,9 +4,11 @@ extern Map demoMap;
 unsigned int currentID;
 
 // Class Methods
-Entity::Entity(int posx, int posy) {
+Entity::Entity(int posx, int posy, bool colCircle, int radius) {
     x = (float) posx;
     y = (float) posy;
+    this->colCircle = colCircle;
+    this->radius = radius;
     demoMap.addEntity(this);
 }
 
@@ -38,8 +40,8 @@ void Entity::movef(int numx, int denx, int numy, int deny) {
 }
 
 // Helpers/Wrappers
-int createEntity(int posx, int posy) {
-    Entity *entity = new Entity(posx, posy);
+int createEntity(int posx, int posy, int radius) {
+    Entity *entity = new Entity(posx, posy, true, radius);
     entity->id = currentID;
     return currentID++;
 }

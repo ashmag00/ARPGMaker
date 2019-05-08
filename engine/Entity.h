@@ -12,7 +12,7 @@ extern unsigned int currentID;
 
 class Entity {
     public:
-        Entity(int posx, int posy);
+        Entity(int posx, int posy, bool colCircle, int radius);
         // Entity(Tile tile);
         void setTexture(char *texturePath);
         void setPosition(int posx, int posy);
@@ -21,14 +21,16 @@ class Entity {
         void movef(int numx, int denx, int numy, int deny);
     //private:
         Tile* tile;
+        friend class Map;
         float x;
         float y;
         unsigned int id;
+        int radius;
         char *texture;
-        friend class Map;
+        bool colCircle;
 };
 
-int createEntity(int posx, int posy);
+int createEntity(int posx, int posy, int radius);
 void move(int id, int posx, int posy);
 void movef(int id, int numx, int denx, int numy, int deny);
 void setTexture(unsigned int id, char *texturePath);
