@@ -3,7 +3,7 @@ import ARPGMaker
 DEBUG = False
 
 # Start the engine
-ARPGMaker.init(800, 600, "ARPGMaker Demo Using C++")
+ARPGMaker.init(800, 600, 32, "ARPGMaker Demo Using C++")
 
 # Store textures
 assets = "assets/assets.txt"
@@ -11,9 +11,10 @@ assets = "assets/assets.txt"
 ARPGMaker.loadTexture("assets/testBack.png")
 ARPGMaker.loadTexture("assets/pikachu.png")
 
-print('HERE')
-playerID = ARPGMaker.createEntity(200, 200)
+playerID = ARPGMaker.createEntity(200, 200, 50)
+player2 = ARPGMaker.createEntity(400, 400, 50)
 ARPGMaker.setTexture(playerID, "assets/pikachu.png")
+ARPGMaker.setTexture(player2, "assets/pikachu.png")
 
 # Eventually set to an actual condition
 while ARPGMaker.isOpen():
@@ -31,6 +32,7 @@ while ARPGMaker.isOpen():
 
     ARPGMaker.renderImage("assets/testBack.png")
     ARPGMaker.renderEntity(playerID)
+    ARPGMaker.renderEntity(player2)
     
     ARPGMaker.draw()
     ARPGMaker.display()
