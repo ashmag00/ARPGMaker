@@ -7,4 +7,5 @@ extern sf::RenderWindow window;
 int isKeyPressed(char *key);
 int mousePositionX();
 int mousePositionY();
+bool mouseLeftClick();
 #endif

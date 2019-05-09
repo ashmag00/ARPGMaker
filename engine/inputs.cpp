@@ -31,3 +31,6 @@ int mousePositionY() {
     sf::Vector2i moVec = sf::Mouse::getPosition(window);
     return moVec.y;
 }
+bool mouseLeftClick() {
+    return sf::Mouse::isButtonPressed(sf::Mouse::Left);
+}
