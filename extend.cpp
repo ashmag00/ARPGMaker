@@ -85,12 +85,13 @@ static PyObject *ARPGMaker_draw(PyObject *self, PyObject *args) {
 static PyObject *ARPGMaker_createEntity(PyObject *self, PyObject *args) {
     int posx;
     int posy;
+    int radius;
     int ret;
 
-    if (!PyArg_ParseTuple(args, "ii", &posx, &posy))
+    if (!PyArg_ParseTuple(args, "iii", &posx, &posy, &radius))
         return NULL;
     
-    ret = createEntity(posx, posy);
+    ret = createEntity(posx, posy, radius);
     return PyLong_FromLong(ret);
 }
 
@@ -164,6 +165,18 @@ static PyObject *ARPGMaker_isOpen(PyObject *self, PyObject *args) {
     return PyLong_FromLong(ret);
 }
 
+static PyObject *ARPGMaker_circleCollide(PyObject *self, PyObject *args) {
+    int ent1ID;
+    int ent2ID;
+    bool ret;
+
+    if (!PyArg_ParseTuple(args, "ii", &ent1ID, &ent2ID))
+        return NULL;
+    
+    ret = circleCollide(ent1ID, ent2ID);
+    return PyLong_FromLong(ret);
+}
+
 static PyMethodDef ARPGMakerMethods[] = {
     {"init", ARPGMaker_init, METH_VARARGS, "Initialize the engine"},
     {"display", ARPGMaker_display, METH_VARARGS, "Display all drawn items in buffer"},
@@ -182,6 +195,7 @@ static PyMethodDef ARPGMakerMethods[] = {
     {"movef", ARPGMaker_movef, METH_VARARGS, "Meve an Entity in the window precisely"},
     {"clear", ARPGMaker_clear, METH_VARARGS, "Clear the window"},
     {"isOpen", ARPGMaker_isOpen, METH_VARARGS, "Checks if the window is open"},
+    {"circleCollide", ARPGMaker_circleCollide, METH_VARARGS, "Checks for collision between two entities"},
     {NULL, NULL, 0, NULL}
 };
 
