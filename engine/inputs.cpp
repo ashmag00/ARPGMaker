@@ -1,6 +1,3 @@
-#include <SFML/Graphics.hpp>
-#include <string.h>
-
 #include "inputs.h"
 
 int isKeyPressed(char *key) {
@@ -25,4 +22,12 @@ int isKeyPressed(char *key) {
     }
 
     return 0;
+}
+int mousePositionX() {
+    sf::Vector2i moVec = sf::Mouse::getPosition(window);
+    return moVec.x;
+}
+int mousePositionY() {
+    sf::Vector2i moVec = sf::Mouse::getPosition(window);
+    return moVec.y;
 }

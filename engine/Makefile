@@ -8,7 +8,7 @@ ARPGMaker: main.cpp Map.cpp
 	g++ -std=c++11 -o ARPGMaker main.cpp Map.cpp $(INCLUDE_SFML)
 
 demo: main.cpp demo.cpp
-	g++ -std=c++11 -o ARPGMaker demo.cpp render.cpp Entity.cpp inputs.cpp Tile.cpp main.cpp memory.cpp Map.cpp collisions.cpp $(INCLUDE_SFML)
+	g++ -std=c++11 -g -o ARPGMaker demo.cpp render.cpp Entity.cpp inputs.cpp Tile.cpp main.cpp memory.cpp Map.cpp collisions.cpp $(INCLUDE_SFML)
 
 debug: main.cpp demo.cpp
 	g++ -std=c++11 -g -o ARPGMaker main.cpp demo.cpp $(INCLUDE_SFML)
