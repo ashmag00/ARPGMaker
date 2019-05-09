@@ -56,3 +56,13 @@ void setTexture(unsigned int id, char *texturePath) {
     Entity *tmp = demoMap.getEntityByID(id);
     tmp->setTexture(texturePath);
 }
+
+int getEntityPositionX(int entID) {
+    Entity *tmp = demoMap.getEntityByID(entID);
+    return tmp->x;
+}
+
+int getEntityPositionY(int entID) {
+    Entity *tmp = demoMap.getEntityByID(entID);
+    return tmp->y;
+}

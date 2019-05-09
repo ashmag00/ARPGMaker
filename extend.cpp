@@ -214,6 +214,28 @@ static PyObject *ARPGMaker_mouseLeftClick(PyObject *self, PyObject *args) {
     return PyLong_FromLong(ret);
 }
 
+static PyObject *ARPGMaker_getEntityPositionX(PyObject *self, PyObject *args) {
+    int entID;
+    int ret;
+
+    if (!PyArg_ParseTuple(args, "i", &entID))
+        return NULL;
+    
+    ret = getEntityPositionX(entID);
+    return PyLong_FromLong(ret);
+}
+
+static PyObject *ARPGMaker_getEntityPositionY(PyObject *self, PyObject *args) {
+    int entID;
+    int ret;
+
+    if (!PyArg_ParseTuple(args, "i", &entID))
+        return NULL;
+    
+    ret = getEntityPositionY(entID);
+    return PyLong_FromLong(ret);
+}
+
 static PyMethodDef ARPGMakerMethods[] = {
     {"init", ARPGMaker_init, METH_VARARGS, "Initialize the engine"},
     {"display", ARPGMaker_display, METH_VARARGS, "Display all drawn items in buffer"},
@@ -238,6 +260,8 @@ static PyMethodDef ARPGMakerMethods[] = {
     {"mousePositionX", ARPGMaker_mousePositionX, METH_VARARGS, "Get mouse X position"},
     {"mousePositionY", ARPGMaker_mousePositionY, METH_VARARGS, "Get mouse Y position"},
     {"mouseLeftClick", ARPGMaker_mouseLeftClick, METH_VARARGS, "Check if mouse is being clicked"},
+    {"getEntityPositionX", ARPGMaker_getEntityPositionX, METH_VARARGS, "Get Entity X position"},
+    {"getEntityPositionY", ARPGMaker_getEntityPositionY, METH_VARARGS, "Get Entity Y position"},
     {NULL, NULL, 0, NULL}
 };
 

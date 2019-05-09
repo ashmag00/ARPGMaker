@@ -45,7 +45,7 @@ while ARPGMaker.isOpen():
     ARPGMaker.draw()
     ARPGMaker.display()
 
-    if ARPGMaker.circleCollide(playerID, player2):
+    if ARPGMaker.getEntityPositionX(playerID) == 400:
         ARPGMaker.remEntity(player2)
     #     print(player2)
 

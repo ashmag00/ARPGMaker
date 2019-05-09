@@ -33,6 +33,8 @@ int createEntity(int posx, int posy, int radius);
 void move(int id, int posx, int posy);
 void movef(int id, int numx, int denx, int numy, int deny);
 void setTexture(unsigned int id, char *texturePath);
+int getEntityPositionX(int entID);
+int getEntityPositionY(int entID);
 
 #else
 class Entity;
