@@ -1,4 +1,5 @@
 #include "Map.h"
+#include <iostream>
 
 Map::Map(int tileSize, int tileX, int tileY) { //Initialize a map
     // this->background = backgroundFilePath;
@@ -24,9 +25,10 @@ void Map::addEntity(Entity* entity, Tile* tile) {
     this->entityList.push_back(entity);
 }
 
- void Map::removeEntity(Entity* entity, Tile* tile) {
-     this->entityList.remove(entity);
- }
+void Map::removeEntity(Entity* entity) {
+    this->entityList.remove(entity);
+    // std::cout << this->entityListSize() << std::endl;
+}
 
 int Map::entityListSize() {
     return this->entityList.size();
@@ -44,6 +46,11 @@ Entity* Map::getEntityByID(unsigned int entityID) {
     }
 
     return NULL;
+}
+
+void remEntity(int entID) {
+    Entity *tmp = demoMap.getEntityByID(entID);
+    demoMap.removeEntity(tmp);
 }
 
 void createMap(int tileSize, int tileX, int tileY) {

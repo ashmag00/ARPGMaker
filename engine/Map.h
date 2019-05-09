@@ -17,12 +17,11 @@ class Map {
         Map(int tileSize = 0, int tileX = 0, int tileY = 0);//Initialize a map
         void addEntity(Entity* entity);
         void addEntity(Entity* entity, Tile* tile);
-        void removeEntity(Entity* entity, Tile* tile);
+        void removeEntity(Entity* entity);
         int entityListSize();
         Tile* accessTile(int x, int y);
         Entity* getEntityByID(unsigned int entityID);
-        //std::list<Entity*> entityList;
-    private:
+
         std::vector<Tile*> tileList;
         std::list<Entity*> entityList;
         int tileSize;//Size in pixels of a tile in the map
@@ -30,6 +29,10 @@ class Map {
         int tileY;
         char *background;
 };
+
+void remEntity(int entID);
+void createMap(int tileSize, int tileX, int tileY);
+
 #else
 class Map;
 #endif

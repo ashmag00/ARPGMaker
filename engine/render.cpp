@@ -59,6 +59,14 @@ void renderEntity(unsigned int id) {
     buffer.push(entity);
 }
 
+void renderEntities() {
+    for(std::list<Entity*>::iterator it = demoMap.entityList.begin(); it != demoMap.entityList.end(); ++it) {
+        sf::Sprite *entity = new sf::Sprite(textureHash[(*it)->texture]);
+        entity->setPosition((*it)->x, (*it)->y);
+        buffer.push(entity);
+    }
+}
+
 void renderScene() {
     // for(auto entity: g_tmap.entityList) {
     //     loadTexture(entity.texture);

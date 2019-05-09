@@ -14,6 +14,7 @@ void loadTexturesFromFile(char *filePath);
 void setBackground(char *filePath);
 void renderImage(char *filePath);
 void renderEntity(unsigned int id);
+void renderEntities();
 void renderScene();
 void draw();
 void clear();

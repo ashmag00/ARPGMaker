@@ -1,4 +1,5 @@
 import ARPGMaker
+import time
 
 DEBUG = False
 
@@ -16,6 +17,10 @@ player2 = ARPGMaker.createEntity(400, 400, 50)
 ARPGMaker.setTexture(playerID, "assets/pikachu.png")
 ARPGMaker.setTexture(player2, "assets/pikachu.png")
 
+
+temp = True
+
+
 while ARPGMaker.isOpen():
     ARPGMaker.systemEventHandler()
 
@@ -28,13 +33,20 @@ while ARPGMaker.isOpen():
     if ARPGMaker.isKeyPressed('D') == 1:
         ARPGMaker.move(playerID, 10, 0)
 
+
     ARPGMaker.clear()
 
     ARPGMaker.renderImage("assets/testBack.png")
-    ARPGMaker.renderEntity(playerID)
-    ARPGMaker.renderEntity(player2)
-    
+    ARPGMaker.renderEntities()
+
+    # if temp:
+    #     ARPGMaker.renderEntity(player2)
+       
     ARPGMaker.draw()
     ARPGMaker.display()
+
+    if ARPGMaker.circleCollide(playerID, player2):
+        ARPGMaker.remEntity(player2)
+    #     print(player2)
 
 ARPGMaker.close()

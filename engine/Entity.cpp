@@ -12,10 +12,6 @@ Entity::Entity(int posx, int posy, bool colCircle, int radius) {
     demoMap.addEntity(this);
 }
 
-// Entity(Tile tile) {
-
-// }
-
 void Entity::setTexture(char *texturePath) {
     texture = texturePath;
 }
@@ -45,14 +41,6 @@ int createEntity(int posx, int posy, int radius) {
     entity->id = currentID;
     return currentID++;
 }
-
-// Entity getByID(unsigned int id) {
-//     for(auto entity: g_tmap.entityList) {
-//         if (entity.id == id) {
-//             return entity;
-//         }
-//     }
-// }
 
 void move(int id, int posx, int posy) {
     Entity *tmp = demoMap.getEntityByID(id);
