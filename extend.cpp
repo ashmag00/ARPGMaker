@@ -177,6 +177,27 @@ static PyObject *ARPGMaker_circleCollide(PyObject *self, PyObject *args) {
     return PyLong_FromLong(ret);
 }
 
+static PyObject *ARPGMaker_mousePositionX(PyObject *self, PyObject *args) {
+    int ret;
+
+    ret = mousePositionX();
+    return PyLong_FromLong(ret);
+}
+
+static PyObject *ARPGMaker_mousePositionY(PyObject *self, PyObject *args) {
+    int ret;
+
+    ret = mousePositionY();
+    return PyLong_FromLong(ret);
+}
+
+static PyObject *ARPGMaker_mouseLeftClick(PyObject *self, PyObject *args) {
+    bool ret;
+
+    ret = mouseLeftClick();
+    return PyLong_FromLong(ret);
+}
+
 static PyMethodDef ARPGMakerMethods[] = {
     {"init", ARPGMaker_init, METH_VARARGS, "Initialize the engine"},
     {"display", ARPGMaker_display, METH_VARARGS, "Display all drawn items in buffer"},
@@ -196,6 +217,9 @@ static PyMethodDef ARPGMakerMethods[] = {
     {"clear", ARPGMaker_clear, METH_VARARGS, "Clear the window"},
     {"isOpen", ARPGMaker_isOpen, METH_VARARGS, "Checks if the window is open"},
     {"circleCollide", ARPGMaker_circleCollide, METH_VARARGS, "Checks for collision between two entities"},
+    {"mousePositionX", ARPGMaker_mousePositionX, METH_VARARGS, "Get mouse X position"},
+    {"mousePositionY", ARPGMaker_mousePositionY, METH_VARARGS, "Get mouse Y position"},
+    {"mouseLeftClick", ARPGMaker_mouseLeftClick, METH_VARARGS, "Check if mouse is being clicked"},
     {NULL, NULL, 0, NULL}
 };
 
