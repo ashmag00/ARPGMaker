@@ -3,7 +3,6 @@
 #include <SFML/Audio.hpp>
 
 #include "engine/main.h"
-#include "engine/Map.h"
 
 // Extend all developer-level functions to a Python module
 // #1: Create method to read Python arguments and types and call the engine function
