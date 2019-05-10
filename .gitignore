@@ -4,3 +4,4 @@ build
 ARPGMaker
 a.out
 *.swp
+__pycache__/

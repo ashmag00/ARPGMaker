@@ -1,4 +1,4 @@
-GAME = alec_demo_0.py
+GAME = alec_demo.py
 
 .PHONY: build clean
 
