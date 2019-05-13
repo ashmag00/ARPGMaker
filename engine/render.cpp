@@ -6,6 +6,7 @@
 
 #include "memory.h"
 #include "render.h"
+#include "Map.h"
 
 extern Map demoMap;
 
@@ -45,7 +46,19 @@ void loadTexturesFromFile(char *filePath) {
 }
 
 void setBackground(char *filePath) {
+    for (int i = 0; i < demoMap.tileList.size(); i++) {
+        demoMap.tileList[i]->texture = filePath;
+    }
+}
 
+void renderBackground() {
+    for (int i = 0; i < demoMap.tileList.size(); i++) {
+        sf::Sprite *tile = new sf::Sprite(textureHash[demoMap.tileList[i]->texture]);
+        int x = demoMap.tileList[i]->ID % demoMap.tileX;
+        int y = demoMap.tileList[i]->ID / demoMap.tileY;
+        tile->setPosition(x, y);
+        buffer.push(tile);
+    }
 }
 
 void renderImage(char *filePath) {

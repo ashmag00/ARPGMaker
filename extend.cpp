@@ -67,6 +67,21 @@ static PyObject *ARPGMaker_loadTexturesFromFile(PyObject *self, PyObject *args) 
     Py_RETURN_NONE;
 }
 
+static PyObject *ARPGMaker_setBackground(PyObject *self, PyObject *args) {
+    char *filePath;
+
+    if (!PyArg_ParseTuple(args, "s", &filePath))
+        return NULL;
+
+    setBackground(filePath);
+    Py_RETURN_NONE;
+}
+
+static PyObject *ARPGMaker_renderBackground(PyObject *self, PyObject *args) {
+    renderBackground();
+    Py_RETURN_NONE;
+}
+
 static PyObject *ARPGMaker_renderImage(PyObject *self, PyObject *args) {
     char *filePath;
 
@@ -245,6 +260,8 @@ static PyMethodDef ARPGMakerMethods[] = {
     {"draw", ARPGMaker_draw, METH_VARARGS, "Draws sprite to the didplay buffer"},
     {"loadTexture", ARPGMaker_loadTexture, METH_VARARGS, "Load and store a texture"},
     {"loadTexturesFromFile", ARPGMaker_loadTexturesFromFile, METH_VARARGS, "Load and store multiple textures"},
+    {"setBackground", ARPGMaker_setBackground, METH_VARARGS, "Set the background"},
+    {"renderBackground", ARPGMaker_renderBackground, METH_VARARGS, "Attach a tile texture to a sprite"},
     {"createEntity", ARPGMaker_createEntity, METH_VARARGS, "Create a new Entity"},
     {"remEntity", ARPGMaker_remEntity, METH_VARARGS, "Destroy an Entity"},
     {"createMap", ARPGMaker_createMap, METH_VARARGS, "Create a new Map"},

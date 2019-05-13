@@ -1,8 +1,9 @@
 #include "Tile.h"
 
 // Store information on a single tile
-Tile::Tile(int size) {
+Tile::Tile(int size, unsigned int ID) {
     this->size = size;
+    this->ID = ID;
 }
 void Tile::setTexture(char *filePath) {
     texture = filePath;

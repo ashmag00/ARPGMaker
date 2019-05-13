@@ -7,8 +7,6 @@ DEBUG = False
 ARPGMaker.init(800, 600, 32, "ARPGMaker Demo Using C++")
 
 # Store textures
-assets = "assets/assets.txt"
-# ARPGMaker.loadTexturesFromFile(assets)
 ARPGMaker.loadTexture("assets/testBack.png")
 ARPGMaker.loadTexture("assets/pikachu.png")
 
@@ -16,10 +14,6 @@ playerID = ARPGMaker.createEntity(200, 200, 50)
 player2 = ARPGMaker.createEntity(400, 400, 50)
 ARPGMaker.setTexture(playerID, "assets/pikachu.png")
 ARPGMaker.setTexture(player2, "assets/pikachu.png")
-
-
-temp = True
-
 
 while ARPGMaker.isOpen():
     ARPGMaker.systemEventHandler()
@@ -33,20 +27,15 @@ while ARPGMaker.isOpen():
     if ARPGMaker.isKeyPressed('D') == 1:
         ARPGMaker.move(playerID, 10, 0)
 
-
     ARPGMaker.clear()
 
     ARPGMaker.renderImage("assets/testBack.png")
     ARPGMaker.renderEntities()
-
-    # if temp:
-    #     ARPGMaker.renderEntity(player2)
-       
+    
     ARPGMaker.draw()
     ARPGMaker.display()
 
     if ARPGMaker.getEntityPositionX(playerID) == 400:
         ARPGMaker.remEntity(player2)
-    #     print(player2)
 
 ARPGMaker.close()

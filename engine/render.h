@@ -12,6 +12,7 @@ void display();
 void loadTexture(char *filePath);
 void loadTexturesFromFile(char *filePath);
 void setBackground(char *filePath);
+void renderBackground();
 void renderImage(char *filePath);
 void renderEntity(unsigned int id);
 void renderEntities();

@@ -8,7 +8,7 @@ Map::Map(int tileSize, int tileX, int tileY) { //Initialize a map
     this->tileY = tileY;
     for(int y = 0; y < tileY; y++) {
         for(int x = 0; x < tileX; x++) {
-            tileList.push_back(new Tile(tileSize));
+            tileList.push_back(new Tile(tileSize, y+(x*y)));
         }
     }
 }
