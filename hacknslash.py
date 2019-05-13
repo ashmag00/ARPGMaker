@@ -5,20 +5,18 @@ import draw
 
 width = 800
 height = 600
-tile_size = 100
+tile_size = 128
 ARPGMaker.init(width, height, tile_size, "Noah's Hack 'n Slash")
 
 ARPGMaker.loadTexture("assets/pikachu.png")
 ARPGMaker.loadTexture("assets/squirtle.png")
-ARPGMaker.loadTexture("assets/testBack.png")
-ARPGMaker.setBackground("assets/testBack.png")
+ARPGMaker.loadTexture("assets/testBack-128.png")
+ARPGMaker.setBackground("assets/testBack-128.png")
 
 player_radius = 128
 player = ARPGMaker.createEntity(400, 300, player_radius)
 ARPGMaker.setTexture(player, "assets/pikachu.png")
 attack = None
-
-ARPGMaker.renderBackground()
 
 update_start = time.time()
 while ARPGMaker.isOpen():
@@ -40,12 +38,12 @@ while ARPGMaker.isOpen():
             attack = ARPGMaker.createEntity(ARPGMaker.getEntityPositionX(player), ARPGMaker.getEntityPositionY(player) - player_radius, 20)
             ARPGMaker.setTexture(attack, "assets/squirtle.png")
             ARPGMaker.renderEntity(attack)
-            print("ATTACK")
+            # print("ATTACK")
 
-        # ARPGMaker.renderImage("assets/testBack.png")
+        # ARPGMaker.renderImage("assets/testBack-128.png")
         if attack is not None:
             ARPGMaker.remEntity(attack)
-            print("REMOVED")
+            # print("REMOVED")
             attack = None
                 
         draw.draw_all()
