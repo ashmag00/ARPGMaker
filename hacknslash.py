@@ -22,8 +22,8 @@ attack = None
 enemy = ARPGMaker.createEntity(0, 0, 100)
 ARPGMaker.setTexture(enemy, "assets/squirtle.png")
 
-dirx = random.randint(1, 10)
-diry = random.randint(1, 10)
+dirx = random.randint(15, 400)
+diry = random.randint(15, 400)
 
 update_start = time.time()
 while ARPGMaker.isOpen():
@@ -35,15 +35,12 @@ while ARPGMaker.isOpen():
 
         if enemy is not None:
             ARPGMaker.renderEntity(enemy)
-            # ARPGMaker.movef(enemy, int(100 * update_delta * 100), 100, int(100 * update_delta * 100), 100)
             if ARPGMaker.getEntityPositionX(enemy) < 0 or ARPGMaker.getEntityPositionX(enemy) > width - 200:
                 dirx = -dirx
-                ARPGMaker.move(enemy, dirx, diry)
             elif ARPGMaker.getEntityPositionY(enemy) > height - 200 or ARPGMaker.getEntityPositionY(enemy) < 0:
                 diry = -diry
-                ARPGMaker.move(enemy, dirx, diry)
-            else:
-                ARPGMaker.move(enemy, dirx, diry)
+            
+            ARPGMaker.movef(enemy, int(dirx * update_delta * 100), 100, int(diry * update_delta * 100), 100)
 
         # Handle input and boundaries
         if ARPGMaker.isKeyPressed('W') == 1 and ARPGMaker.getEntityPositionY(player) > 0:
@@ -69,7 +66,6 @@ while ARPGMaker.isOpen():
         # Draw everything
         draw.draw_all()
         if attack is not None:
-            ARPGMaker.renderEntity(attack)
             ARPGMaker.remEntity(attack)
             attack = None                
 
