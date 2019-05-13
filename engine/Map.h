@@ -10,6 +10,7 @@
 // GABE: "I included the sound.h and music.h files so that
 //       the list objects I created in them are created."
 #include "Sound.h"
+#include "SoundBuffer.h"
 #include "Music.h"
 
 class Map {
