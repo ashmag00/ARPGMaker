@@ -27,7 +27,7 @@ class Sound {
         int loadedBuffer();
 
         // Used for DEBUGGING
-        int main();
+        //int main();
 
         int id;
         char *filePath;

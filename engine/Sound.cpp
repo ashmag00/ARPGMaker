@@ -115,7 +115,7 @@ Sound* getSoundByID(int ID) {
 }
 
 
-int main() {
+/*int main() {
 
     std::cout << "HI" << std::endl;
     
@@ -123,7 +123,6 @@ int main() {
 
     int anchor = createSound("../assets/parry.wav", 1);
     playSound(anchor);
-    std::cout << "HI" << std::endl;
 
     while ( clock.getElapsedTime() < sf::milliseconds(10) ) {}
     int file2 = createSound("../assets/parry.wav", 0);
@@ -144,9 +143,7 @@ int main() {
 
     //FIXME: NEXT STEPS, CHANNELING AUDIO
 
-
     while ( clock.getElapsedTime() < sf::milliseconds(4000) ) {}
     
     return 0;
-}
-
+}*/
