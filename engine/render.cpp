@@ -56,7 +56,6 @@ void renderBackground() {
         sf::Sprite *tile = new sf::Sprite(textureHash[demoMap.tileList[i]->texture]);
         int x = demoMap.tileList[i]->ID % demoMap.tileX * demoMap.tileSize;
         int y = demoMap.tileList[i]->ID / demoMap.tileX * demoMap.tileSize;
-        // std::cout << x <<", "<< y << std::endl;
         tile->setPosition(x, y);
         buffer.push(tile);
     }

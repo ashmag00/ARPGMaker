@@ -6,11 +6,9 @@ Map::Map(int tileSize, int tileX, int tileY) { //Initialize a map
     this->tileSize = tileSize;
     this->tileX = tileX;
     this->tileY = tileY;
-    int tmp = 0;
     for(int y = 0; y < tileY; y++) {
         for(int x = 0; x < tileX; x++) {
             tileList.push_back(new Tile(tileSize, y * tileX + x));
-            // std::cout << (y*tileX) + x << std::endl;
         }
     }
 }
