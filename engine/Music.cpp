@@ -2,18 +2,22 @@
 // Console command to compile for debugging:
 // g++ Music.cpp -lsfml-graphics -lsfml-window -lsfml-system -I/usr/include/SFML/ -lsfml-audio -lsfml-network
 
+#include <iostream>
 #include "Music.h"
 
+unsigned int currentID;
 
 Music::Music() {}
 void Music::setFilePath(char *fileName) {
     filePath = fileName;
 }
 int Music::openMusicFile(char *fileName) {
-    setFilePath(fileName);
-    if (!music.openFromFile(filePath)) {
+    std::cout << "    Music::openMusicFile(" << std::endl;
+    if (!music.openFromFile(fileName)) {
+        std::cout << "    Music::openMusicFile FAILED" << std::endl;
         return -1;
     }
+    std::cout << "    Music::openMusicFile)" << std::endl;
     return 1;
 }
 void Music::playMusic() {
@@ -25,26 +29,46 @@ void Music::pauseMusic() {
 void Music::stopMusic() {
     music.stop();   
 }
+void Music::setLoop(int setting) {
+    if (setting == 1) {
+        music.setLoop(true);
+    } else {
+        music.setLoop(false);
+    }
+}
+void Music::setVolume(unsigned int vol) {
+    music.setVolume(vol);
+}
 
 
-char * createMusic(char *fileName) {
+int createMusic(char *fileName) {
+    std::cout << "createSound(" << std::endl;
     Music *music = new Music();
+    music->id = currentID;
     music->openMusicFile(fileName);
+    music->setFilePath(fileName);
     musicList.push_front(music);
-    return fileName;
+    std::cout << "createSound)" << std::endl;
+    return currentID++;
 }
-void playMusic(char *filePath) {
-    getMusicByFilePath("../assets/parry.wav")->playMusic();
+void playMusic(int ID) {
+    getMusicByID(ID)->playMusic();
 }
-void pauseMusic(char *filePath) {
-    getMusicByFilePath("../assets/parry.wav")->pauseMusic();
+void pauseMusic(int ID) {
+    getMusicByID(ID)->pauseMusic();
 }
-void stopMusic(char *filePath) {
-    getMusicByFilePath("../assets/parry.wav")->stopMusic();
+void stopMusic(int ID) {
+    getMusicByID(ID)->stopMusic();
 }
-Music* getMusicByFilePath(char *filePath) {
+void setLoop(int ID, int setting) {
+    getMusicByID(ID)->setLoop(setting);
+}
+void setVolume(int ID, unsigned int vol) {
+    getMusicByID(ID)->setVolume(vol);
+}
+Music* getMusicByID(int ID) {
     for(std::list<Music*>::iterator it=musicList.begin(); it != musicList.end(); ++it) {
-        if((*it)->filePath == filePath) {
+        if((*it)->id == ID) {
             return *it;
         }
     }
@@ -52,25 +76,25 @@ Music* getMusicByFilePath(char *filePath) {
 }
 
 
-int main2() {
-    //Audio *parry = new Audio();
-    //parry->loadAudioFile("../assets/parry.wav");
-    //parry->playAudio();
-    //Audio *cough = new Audio();
-    //cough->loadAudioFile("../assets/ahem.wav");
-    //cough->playAudio();
+int main() {
 
+    std::cout << "HI" << std::endl;
 
-    char *file = createMusic("../assets/parry.wav");
+    int anchor = createMusic("../assets/parry.wav");
+    
+    playMusic(anchor);
+    setLoop(anchor, 1);
+    setVolume(anchor, 25);
 
-    sf::Clock clock;
-
-    playMusic(file);
-    while ( clock.getElapsedTime() < sf::milliseconds(500) ) {}
-    pauseMusic(file);
+    //sf::Clock clock;
+    
+    /*while ( clock.getElapsedTime() < sf::milliseconds(500) ) {}
+    pauseMusic(anchor);
     while ( clock.getElapsedTime() < sf::milliseconds(650) ) {}
-    stopMusic(file);
-    playMusic(file);
+    stopMusic(anchor);
+    playMusic(anchor);*/
+
+    std::cout << "GOODBYE" << std::endl;
 
     //FIXME: NEXT STEPS, CHANNELING AUDIO
 

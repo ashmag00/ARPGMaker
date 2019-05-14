@@ -22,7 +22,6 @@ class Sound {
         void stopSound();
         void setLoop(int setting);
         void setVolume(unsigned int vol);
-        int getID();
         sf::SoundBuffer* getBuffer();
         int loadedBuffer();
 
@@ -45,8 +44,6 @@ void setLoop(int ID, int setting);
 void setVolume(int ID, unsigned int vol);
 void accessBuffer(int ID);
 Sound* getSoundByID(int ID);
-//SoundBuffer* getBufferByFilePath(char *filePath);
-
 
 #else
 class Sound;

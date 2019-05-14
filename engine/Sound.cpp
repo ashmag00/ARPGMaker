@@ -48,9 +48,6 @@ void Sound::setLoop(int setting) {
 void Sound::setVolume(unsigned int vol) {
     sound.setVolume(vol);
 }
-int Sound::getID() {
-    return id;
-}
 sf::SoundBuffer* Sound::getBuffer() {
     return buffer;
 }
@@ -95,11 +92,6 @@ void setLoop(int ID, int setting) {
 }
 void setVolume(int ID, unsigned int vol) {
     getSoundByID(ID)->setVolume(vol);
-}
-void accessBuffer(int ID) {
-    std::cout << "        accessBuffer(" << std::endl;
-    getSoundByID(ID)->sound.getBuffer();
-    std::cout << "        accessBuffer)" << std::endl;
 }
 Sound* getSoundByID(int ID) {
     std::cout << "        getSoundByID(" << std::endl;

@@ -7,6 +7,9 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 #include "Map.h"
+#include "memory.h"
+
+extern unsigned int currentID;
 
 class Music {
     public:
@@ -16,19 +19,24 @@ class Music {
         void playMusic();
         void pauseMusic();
         void stopMusic();
+        void setLoop(int setting);
+        void setVolume(unsigned int vol);
 
         // Used for DEBUGGING
-        int main2();
+        int main();
 
+        int id;
         char *filePath;
         sf::Music music;
 };
 
-char * createMusic(char *fileName);
-void playMusic(char *filePath);
-void pauseMusic(char *filePath);
-void stopMusic(char *filePath);
-Music* getMusicByFilePath(char *filePath);
+int createMusic(int ID);
+void playMusic(int ID);
+void pauseMusic(int ID);
+void stopMusic(int ID);
+void setLoop(int ID, int setting);
+void setVolume(int ID, unsigned int vol);
+Music* getMusicByID(int ID);
 
 #else
 class Music;
