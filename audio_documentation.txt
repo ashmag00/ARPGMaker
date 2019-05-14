@@ -1,0 +1,39 @@
+
+
+	ARPGMaker Documentation
+
+~~~~  Sound and Music Functionality  ~~~~
+
+"Sound" class
+
+int createSound(char *fileName)
+
+void playSound(int ID)
+
+void pauseSound(int ID)
+
+void stopSound(int ID)
+
+void setSoundLoop(int ID, int setting)
+
+void setSoundVolume(int ID, unsigned int vol)
+
+void setSoundPitch(int ID, int pitch)
+
+
+"Music" class
+
+int createMusic(char *fileName)
+
+void playMusic(int ID)
+
+void pauseMusic(int ID)
+
+void stopMusic(int ID)
+
+void setMusicLoop(int ID, int setting)
+
+void setMusicVolume(int ID, unsigned int vol)
+
+void setMusicPitch(int ID, int pitch)
+

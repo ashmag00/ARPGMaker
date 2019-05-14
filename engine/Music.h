@@ -31,7 +31,7 @@ class Music {
         sf::Music music;
 };
 
-int createMusic(int ID);
+int createMusic(char *fileName);
 void playMusic(int ID);
 void pauseMusic(int ID);
 void stopMusic(int ID);
