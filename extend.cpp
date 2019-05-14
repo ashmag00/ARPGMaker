@@ -250,6 +250,166 @@ static PyObject *ARPGMaker_getEntityPositionY(PyObject *self, PyObject *args) {
     return PyLong_FromLong(ret);
 }
 
+static PyObject *ARPGMaker_createMusic(PyObject *self, PyObject *args) {
+    char *fileName;
+    int ret;
+
+    if (!PyArg_ParseTuple(args, "s", &fileName))
+        return NULL;
+
+    ret = createMusic(fileName);
+    return PyLong_FromLong(ret);
+}
+
+static PyObject *ARPGMaker_playMusic(PyObject *self, PyObject *args) {
+    int ID;
+
+    if (!PyArg_ParseTuple(args, "i", &ID))
+        return NULL;
+
+    playMusic(ID);
+    Py_RETURN_NONE;
+}
+
+static PyObject *ARPGMaker_pauseMusic(PyObject *self, PyObject *args) {
+    int ID;
+
+    if (!PyArg_ParseTuple(args, "i", &ID))
+        return NULL;
+
+    pauseMusic(ID);
+    Py_RETURN_NONE;
+}
+
+static PyObject *ARPGMaker_stopMusic(PyObject *self, PyObject *args) {
+    int ID;
+
+    if (!PyArg_ParseTuple(args, "i", &ID))
+        return NULL;
+
+    stopMusic(ID);
+    Py_RETURN_NONE;
+}
+
+static PyObject *ARPGMaker_setMusicLoop(PyObject *self, PyObject *args) {
+    int ID;
+    int setting;
+
+    if (!PyArg_ParseTuple(args, "ii", &ID, &setting))
+        return NULL;
+
+    setMusicLoop(ID, setting);
+    Py_RETURN_NONE;
+}
+
+static PyObject *ARPGMaker_setMusicVolume(PyObject *self, PyObject *args) {
+    int ID;
+    unsigned int vol;
+
+    if (!PyArg_ParseTuple(args, "ii", &ID, &vol))
+        return NULL;
+
+    setMusicVolume(ID, vol);
+    Py_RETURN_NONE;
+}
+
+static PyObject *ARPGMaker_setMusicPitch(PyObject *self, PyObject *args) {
+    int ID;
+    int pitch;
+
+    if (!PyArg_ParseTuple(args, "ii", &ID, &pitch))
+        return NULL;
+
+    setMusicPitch(ID, pitch);
+    Py_RETURN_NONE;
+}
+
+static PyObject *ARPGMaker_createSound(PyObject *self, PyObject *args) {
+    char *fileName;
+    int giveBuffer;
+    int ret;
+
+    if (!PyArg_ParseTuple(args, "si", &fileName, &giveBuffer))
+        return NULL;
+
+    ret = createSound(fileName, giveBuffer);
+    return PyLong_FromLong(ret);
+}
+
+static PyObject *ARPGMaker_setBuffer(PyObject *self, PyObject *args) {
+    int ID;
+    int bufferID;
+
+    if (!PyArg_ParseTuple(args, "ii", &ID, &bufferID))
+        return NULL;
+
+    setBuffer(ID, bufferID);
+    Py_RETURN_NONE;
+}
+
+static PyObject *ARPGMaker_playSound(PyObject *self, PyObject *args) {
+    int ID;
+
+    if (!PyArg_ParseTuple(args, "i", &ID))
+        return NULL;
+
+    playSound(ID);
+    Py_RETURN_NONE;
+}
+
+static PyObject *ARPGMaker_pauseSound(PyObject *self, PyObject *args) {
+    int ID;
+
+    if (!PyArg_ParseTuple(args, "i", &ID))
+        return NULL;
+
+    pauseSound(ID);
+    Py_RETURN_NONE;
+}
+
+static PyObject *ARPGMaker_stopSound(PyObject *self, PyObject *args) {
+    int ID;
+
+    if (!PyArg_ParseTuple(args, "i", &ID))
+        return NULL;
+
+    stopSound(ID);
+    Py_RETURN_NONE;
+}
+
+static PyObject *ARPGMaker_setSoundLoop(PyObject *self, PyObject *args) {
+    int ID;
+    int setting;
+
+    if (!PyArg_ParseTuple(args, "ii", &ID, &setting))
+        return NULL;
+
+    setSoundLoop(ID, setting);
+    Py_RETURN_NONE;
+}
+
+static PyObject *ARPGMaker_setSoundVolume(PyObject *self, PyObject *args) {
+    int ID;
+    unsigned int vol;
+
+    if (!PyArg_ParseTuple(args, "ii", &ID, &vol))
+        return NULL;
+
+    setSoundVolume(ID, vol);
+    Py_RETURN_NONE;
+}
+
+static PyObject *ARPGMaker_setSoundPitch(PyObject *self, PyObject *args) {
+    int ID;
+    double pitch;
+
+    if (!PyArg_ParseTuple(args, "id", &ID, &pitch))
+        return NULL;
+
+    setSoundPitch(ID, pitch);
+    Py_RETURN_NONE;
+}
+
 static PyMethodDef ARPGMakerMethods[] = {
     {"init", ARPGMaker_init, METH_VARARGS, "Initialize the engine"},
     {"display", ARPGMaker_display, METH_VARARGS, "Display all drawn items in buffer"},
@@ -278,6 +438,21 @@ static PyMethodDef ARPGMakerMethods[] = {
     {"mouseLeftClick", ARPGMaker_mouseLeftClick, METH_VARARGS, "Check if mouse is being clicked"},
     {"getEntityPositionX", ARPGMaker_getEntityPositionX, METH_VARARGS, "Get Entity X position"},
     {"getEntityPositionY", ARPGMaker_getEntityPositionY, METH_VARARGS, "Get Entity Y position"},
+    {"createMusic", ARPGMaker_createMusic, METH_VARARGS, "Create a Music object"},
+    {"playMusic", ARPGMaker_playMusic, METH_VARARGS, "Play a Music object"},
+    {"pauseMusic", ARPGMaker_pauseMusic, METH_VARARGS, "Pause a Music object"},
+    {"stopMusic", ARPGMaker_stopMusic, METH_VARARGS, "Stop a Music object"},
+    {"setMusicLoop", ARPGMaker_setMusicLoop, METH_VARARGS, "Set a music loop"},
+    {"setMusicVolume", ARPGMaker_setMusicVolume, METH_VARARGS, "Set a music volume"},
+    {"setMusicPitch", ARPGMaker_setMusicPitch, METH_VARARGS, "Set a music pitch"},
+    {"createSound", ARPGMaker_createSound, METH_VARARGS, "Create a new Sound object"},
+    {"setBuffer", ARPGMaker_setBuffer, METH_VARARGS, "Set the sound buffer"},
+    {"playSound", ARPGMaker_playSound, METH_VARARGS, "Play a Sound object"},
+    {"pauseSound", ARPGMaker_pauseSound, METH_VARARGS, "Pause a Sound object"},
+    {"stopSound", ARPGMaker_stopSound, METH_VARARGS, "Stop a Sound object"},
+    {"setSoundLoop", ARPGMaker_setSoundLoop, METH_VARARGS, "Set a sound loop"},
+    {"setSoundVolume", ARPGMaker_setSoundVolume, METH_VARARGS, "set a sound volume"},
+    {"setSoundPitch", ARPGMaker_setSoundPitch, METH_VARARGS, "Set a sound pitch"},
     {NULL, NULL, 0, NULL}
 };
 
@@ -291,7 +466,6 @@ static struct PyModuleDef ARPGMakermodule = {
 };
 
 PyMODINIT_FUNC
-PyInit_ARPGMaker(void)
-{
+PyInit_ARPGMaker(void) {
     return PyModule_Create(&ARPGMakermodule);
 }
