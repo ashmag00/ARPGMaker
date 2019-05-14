@@ -13,7 +13,6 @@ void Sound::setSoundFilePath(char *fileName) {
     filePath = fileName;
 }
 int Sound::loadSoundFile(char *fileName) {
-    std::cout << "    Sound::loadSoundFile(" << std::endl;
     if (!buffer->loadFromFile(filePath)) {
         loadedBuff = false;
         std::cout << "    loadSoundFile FAILED" << std::endl;
@@ -21,7 +20,6 @@ int Sound::loadSoundFile(char *fileName) {
     }
     sound.setBuffer(*buffer);
     loadedBuff = true;
-    std::cout << "    Sound::loadSoundFile)" << std::endl;
     return 1;
 }
 void Sound::setBuffer(sf::SoundBuffer *buffer) {
@@ -29,9 +27,7 @@ void Sound::setBuffer(sf::SoundBuffer *buffer) {
     loadedBuff = true;
 }
 void Sound::playSound() {
-    std::cout << "            Sound::playSound(" << std::endl;
     sound.play();
-    std::cout << "            Sound::playSound)" << std::endl;
 }
 void Sound::pauseSound() {
     sound.pause();   
@@ -62,7 +58,6 @@ int Sound::loadedBuffer() {
 
 
 int createSound(char *fileName, int giveBuffer) {
-    std::cout << "createSound(" << std::endl;
     Sound *sound = new Sound();
     sound->id = currentID;
     sound->setSoundFilePath(fileName);
@@ -72,18 +67,13 @@ int createSound(char *fileName, int giveBuffer) {
     } else {
         sound->loadedBuff = false;
     }
-    std::cout << "createSound)" << std::endl;
     return currentID++;
 }
 void setBuffer(int ID, int bufferID) {
-    std::cout << "    setBuffer(" << std::endl;
     getSoundByID(ID)->setBuffer(getSoundByID(bufferID)->getBuffer());
-    std::cout << "    setBuffer)" << std::endl;
 }
 void playSound(int ID) {
-    std::cout << "playSound(" << std::endl;
     getSoundByID(ID)->playSound();
-    std::cout << "playSound)" << std::endl;
 }
 void pauseSound(int ID) {
     getSoundByID(ID)->pauseSound();
@@ -101,15 +91,12 @@ void setSoundPitch(int ID, double pitch) {
     getSoundByID(ID)->setSoundPitch(pitch/100.0);
 }
 Sound* getSoundByID(int ID) {
-    std::cout << "        getSoundByID(" << std::endl;
     for(std::list<Sound*>::iterator it=soundList.begin(); it != soundList.end(); ++it) {
         if((*it)->id == ID) {
-            std::cout << "            " << (*it)->filePath << std::endl;
-            std::cout << "        getSoundByID)" << std::endl;
             return *it;
         }
     }
-    std::cout << "FAIL" << std::endl;
+    std::cout << "FAILED TO FIND REQUESTED ID" << std::endl;
     return NULL;
 }
 

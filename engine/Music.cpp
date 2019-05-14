@@ -13,12 +13,10 @@ void Music::setMusicFilePath(char *fileName) {
     filePath = fileName;
 }
 int Music::openMusicFile(char *fileName) {
-    std::cout << "    Music::openMusicFile(" << std::endl;
     if (!music.openFromFile(fileName)) {
         std::cout << "    Music::openMusicFile FAILED" << std::endl;
         return -1;
     }
-    std::cout << "    Music::openMusicFile)" << std::endl;
     return 1;
 }
 void Music::playMusic() {
@@ -46,13 +44,11 @@ void Music::setMusicPitch(double pitch) {
 
 
 int createMusic(char *fileName) {
-    std::cout << "createSound(" << std::endl;
     Music *music = new Music();
     music->id = currentID;
     music->openMusicFile(fileName);
     music->setMusicFilePath(fileName);
     musicList.push_front(music);
-    std::cout << "createSound)" << std::endl;
     return currentID++;
 }
 void playMusic(int ID) {
@@ -79,6 +75,7 @@ Music* getMusicByID(int ID) {
             return *it;
         }
     }
+    std::cout << "FAILED TO FIND REQUESTED ID" << std::endl;
     return NULL;
 }
 
