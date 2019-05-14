@@ -1,11 +1,12 @@
 
 // Console command to compile for debugging:
-// g++ Music.cpp -lsfml-graphics -lsfml-window -lsfml-system -I/usr/include/SFML/ -lsfml-audio -lsfml-network
+// g++ Music.cpp Entity.cpp -lsfml-graphics -lsfml-window -lsfml-system -I/usr/include/SFML/ -lsfml-audio -lsfml-network
 
 #include <iostream>
 #include "Music.h"
+#include "Entity.h"
 
-unsigned int currentID;
+//unsigned int currentID;
 
 Music::Music() {}
 void Music::setMusicFilePath(char *fileName) {
@@ -83,8 +84,8 @@ Music* getMusicByID(int ID) {
     int anchor = createMusic("../assets/parry.wav");
     
     playMusic(anchor);
-    setLoop(anchor, 1);
-    setVolume(anchor, 25);
+    setMusicLoop(anchor, 1);
+    setMusicVolume(anchor, 25);
 
     //sf::Clock clock;
     

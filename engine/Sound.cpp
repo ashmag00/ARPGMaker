@@ -4,8 +4,9 @@
 
 #include <iostream>
 #include "Sound.h"
+#include "Entity.h"
 
-unsigned int currentID;
+//unsigned int currentID;
 
 Sound::Sound() {}
 void Sound::setSoundFilePath(char *fileName) {
