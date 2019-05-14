@@ -49,6 +49,9 @@ void Sound::setSoundLoop(int setting) {
 void Sound::setSoundVolume(unsigned int vol) {
     sound.setVolume(vol);
 }
+void Sound::setSoundPitch(double pitch) {
+    sound.setPitch(pitch);
+}
 sf::SoundBuffer* Sound::getBuffer() {
     return buffer;
 }
@@ -94,6 +97,9 @@ void setSoundLoop(int ID, int setting) {
 void setSoundVolume(int ID, unsigned int vol) {
     getSoundByID(ID)->setSoundVolume(vol);
 }
+void setSoundPitch(int ID, double pitch) {
+    getSoundByID(ID)->setSoundPitch(pitch/100.0);
+}
 Sound* getSoundByID(int ID) {
     std::cout << "        getSoundByID(" << std::endl;
     for(std::list<Sound*>::iterator it=soundList.begin(); it != soundList.end(); ++it) {
@@ -117,18 +123,21 @@ Sound* getSoundByID(int ID) {
     int anchor = createSound("../assets/parry.wav", 1);
     playSound(anchor);
 
-    while ( clock.getElapsedTime() < sf::milliseconds(10) ) {}
+    while ( clock.getElapsedTime() < sf::milliseconds(1000) ) {}
     int file2 = createSound("../assets/parry.wav", 0);
+    setSoundPitch(file2, 75);
     setBuffer(file2, anchor);
     playSound(file2);
 
-    while ( clock.getElapsedTime() < sf::milliseconds(20) ) {}
+    while ( clock.getElapsedTime() < sf::milliseconds(2000) ) {}
     int file3 = createSound("../assets/parry.wav", 0);
+    setSoundPitch(file3, 50);
     setBuffer(file3, anchor);
     playSound(file3);
     
-    while ( clock.getElapsedTime() < sf::milliseconds(30) ) {}
+    while ( clock.getElapsedTime() < sf::milliseconds(3000) ) {}
     int file4 = createSound("../assets/parry.wav", 0);
+    setSoundPitch(file4, 25);
     setBuffer(file4, anchor);
     playSound(file4);
 
@@ -136,7 +145,7 @@ Sound* getSoundByID(int ID) {
 
     //FIXME: NEXT STEPS, CHANNELING AUDIO
 
-    while ( clock.getElapsedTime() < sf::milliseconds(4000) ) {}
+    while ( clock.getElapsedTime() < sf::milliseconds(6000) ) {}
     
     return 0;
 }*/

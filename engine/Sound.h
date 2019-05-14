@@ -22,6 +22,7 @@ class Sound {
         void stopSound();
         void setSoundLoop(int setting);
         void setSoundVolume(unsigned int vol);
+        void setSoundPitch(double pitch);
         sf::SoundBuffer* getBuffer();
         int loadedBuffer();
 
@@ -42,7 +43,7 @@ void pauseSound(int ID);
 void stopSound(int ID);
 void setSoundLoop(int ID, int setting);
 void setSoundVolume(int ID, unsigned int vol);
-void accessBuffer(int ID);
+void setSoundPitch(int ID, double pitch);
 Sound* getSoundByID(int ID);
 
 #else

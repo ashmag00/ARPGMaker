@@ -40,6 +40,9 @@ void Music::setMusicLoop(int setting) {
 void Music::setMusicVolume(unsigned int vol) {
     music.setVolume(vol);
 }
+void Music::setMusicPitch(double pitch) {
+    music.setPitch(pitch);
+}
 
 
 int createMusic(char *fileName) {
@@ -67,6 +70,9 @@ void setMusicLoop(int ID, int setting) {
 void setMusicVolume(int ID, unsigned int vol) {
     getMusicByID(ID)->setMusicVolume(vol);
 }
+void setMusicPitch(int ID, int pitch) {
+    getMusicByID(ID)->setMusicPitch(pitch/100.0);
+}
 Music* getMusicByID(int ID) {
     for(std::list<Music*>::iterator it=musicList.begin(); it != musicList.end(); ++it) {
         if((*it)->id == ID) {
@@ -80,20 +86,17 @@ Music* getMusicByID(int ID) {
 /*int main() {
 
     std::cout << "HI" << std::endl;
-
     int anchor = createMusic("../assets/parry.wav");
     
     playMusic(anchor);
-    setMusicLoop(anchor, 1);
-    setMusicVolume(anchor, 25);
+    setMusicVolume(anchor, 100);
 
-    //sf::Clock clock;
+    sf::Clock clock;
     
-    //while ( clock.getElapsedTime() < sf::milliseconds(500) ) {}
-    //pauseMusic(anchor);
-    //while ( clock.getElapsedTime() < sf::milliseconds(650) ) {}
-    //stopMusic(anchor);
-    //playMusic(anchor);
+    while ( clock.getElapsedTime() < sf::milliseconds(1500) ) {}
+    
+    setMusicPitch(anchor, 50);
+    playMusic(anchor);
 
     std::cout << "GOODBYE" << std::endl;
 
