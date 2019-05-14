@@ -8,7 +8,7 @@
 unsigned int currentID;
 
 Music::Music() {}
-void Music::setFilePath(char *fileName) {
+void Music::setMusicFilePath(char *fileName) {
     filePath = fileName;
 }
 int Music::openMusicFile(char *fileName) {
@@ -29,14 +29,14 @@ void Music::pauseMusic() {
 void Music::stopMusic() {
     music.stop();   
 }
-void Music::setLoop(int setting) {
+void Music::setMusicLoop(int setting) {
     if (setting == 1) {
         music.setLoop(true);
     } else {
         music.setLoop(false);
     }
 }
-void Music::setVolume(unsigned int vol) {
+void Music::setMusicVolume(unsigned int vol) {
     music.setVolume(vol);
 }
 
@@ -46,7 +46,7 @@ int createMusic(char *fileName) {
     Music *music = new Music();
     music->id = currentID;
     music->openMusicFile(fileName);
-    music->setFilePath(fileName);
+    music->setMusicFilePath(fileName);
     musicList.push_front(music);
     std::cout << "createSound)" << std::endl;
     return currentID++;
@@ -60,11 +60,11 @@ void pauseMusic(int ID) {
 void stopMusic(int ID) {
     getMusicByID(ID)->stopMusic();
 }
-void setLoop(int ID, int setting) {
-    getMusicByID(ID)->setLoop(setting);
+void setMusicLoop(int ID, int setting) {
+    getMusicByID(ID)->setMusicLoop(setting);
 }
-void setVolume(int ID, unsigned int vol) {
-    getMusicByID(ID)->setVolume(vol);
+void setMusicVolume(int ID, unsigned int vol) {
+    getMusicByID(ID)->setMusicVolume(vol);
 }
 Music* getMusicByID(int ID) {
     for(std::list<Music*>::iterator it=musicList.begin(); it != musicList.end(); ++it) {
@@ -76,7 +76,7 @@ Music* getMusicByID(int ID) {
 }
 
 
-int main() {
+/*int main() {
 
     std::cout << "HI" << std::endl;
 
@@ -88,11 +88,11 @@ int main() {
 
     //sf::Clock clock;
     
-    /*while ( clock.getElapsedTime() < sf::milliseconds(500) ) {}
-    pauseMusic(anchor);
-    while ( clock.getElapsedTime() < sf::milliseconds(650) ) {}
-    stopMusic(anchor);
-    playMusic(anchor);*/
+    //while ( clock.getElapsedTime() < sf::milliseconds(500) ) {}
+    //pauseMusic(anchor);
+    //while ( clock.getElapsedTime() < sf::milliseconds(650) ) {}
+    //stopMusic(anchor);
+    //playMusic(anchor);
 
     std::cout << "GOODBYE" << std::endl;
 
@@ -101,5 +101,5 @@ int main() {
     while(true) {}
 
     return 1;
-}
+}*/
 

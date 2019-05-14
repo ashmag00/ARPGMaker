@@ -8,7 +8,7 @@
 unsigned int currentID;
 
 Sound::Sound() {}
-void Sound::setFilePath(char *fileName) {
+void Sound::setSoundFilePath(char *fileName) {
     filePath = fileName;
 }
 int Sound::loadSoundFile(char *fileName) {
@@ -38,14 +38,14 @@ void Sound::pauseSound() {
 void Sound::stopSound() {
     sound.stop();
 }
-void Sound::setLoop(int setting) {
+void Sound::setSoundLoop(int setting) {
     if (setting == 1){
         sound.setLoop(true);
     } else {
         sound.setLoop(false);
     }
 }
-void Sound::setVolume(unsigned int vol) {
+void Sound::setSoundVolume(unsigned int vol) {
     sound.setVolume(vol);
 }
 sf::SoundBuffer* Sound::getBuffer() {
@@ -61,7 +61,7 @@ int createSound(char *fileName, int giveBuffer) {
     std::cout << "createSound(" << std::endl;
     Sound *sound = new Sound();
     sound->id = currentID;
-    sound->setFilePath(fileName);
+    sound->setSoundFilePath(fileName);
     soundList.push_front(sound);
     if (giveBuffer > 0) {
         sound->loadSoundFile(fileName);
@@ -87,11 +87,11 @@ void pauseSound(int ID) {
 void stopSound(int ID) {
     getSoundByID(ID)->stopSound();
 }
-void setLoop(int ID, int setting) {
-    getSoundByID(ID)->setLoop(setting);
+void setSoundLoop(int ID, int setting) {
+    getSoundByID(ID)->setSoundLoop(setting);
 }
-void setVolume(int ID, unsigned int vol) {
-    getSoundByID(ID)->setVolume(vol);
+void setSoundVolume(int ID, unsigned int vol) {
+    getSoundByID(ID)->setSoundVolume(vol);
 }
 Sound* getSoundByID(int ID) {
     std::cout << "        getSoundByID(" << std::endl;

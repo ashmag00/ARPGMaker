@@ -14,16 +14,16 @@ extern unsigned int currentID;
 class Music {
     public:
         Music();
-        void setFilePath(char *fileName);
+        void setMusicFilePath(char *fileName);
         int openMusicFile(char *fileName);
         void playMusic();
         void pauseMusic();
         void stopMusic();
-        void setLoop(int setting);
-        void setVolume(unsigned int vol);
+        void setMusicLoop(int setting);
+        void setMusicVolume(unsigned int vol);
 
         // Used for DEBUGGING
-        int main();
+        //int main();
 
         int id;
         char *filePath;
@@ -34,8 +34,8 @@ int createMusic(int ID);
 void playMusic(int ID);
 void pauseMusic(int ID);
 void stopMusic(int ID);
-void setLoop(int ID, int setting);
-void setVolume(int ID, unsigned int vol);
+void setMusicLoop(int ID, int setting);
+void setMusicVolume(int ID, unsigned int vol);
 Music* getMusicByID(int ID);
 
 #else
