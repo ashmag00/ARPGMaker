@@ -27,7 +27,7 @@ int createSound(char *fileName, int giveBuffer)
         "giveBuffer" greater than 0 to load buffer; "giveBuffer" less than or equal to 0 to forgo loading buffer.
 
     RETURNS
-        The id (int) of the object.
+        The id (int) of the Sound object.
 
 ------------------------------------------------
 void setBuffer(int ID, int bufferID)
@@ -41,7 +41,7 @@ void setBuffer(int ID, int bufferID)
 ------------------------------------------------
 void playSound(int ID)
 
-    Plays audio of Sound object. Resumes audio of paused Sound object.
+    Plays audio of Sound object. Resumes audio of a paused Sound object.
 
     PARAMETERS
         ID | Id (int) of Sound object to be played.
@@ -87,7 +87,11 @@ void setSoundPitch(int ID, int pitch)
 
     PARAMETERS
         ID | Id (int) of Sound object to be adjusted.
-        pitch | Desired pitch out of a 10-1000% range. I.e. input "200" heightens pitch and doubles playback speed (200/100, AKA 200%).
+        pitch | Desired pitch out of a 10-1000% range. I.e. input "200" heightens pitch and
+        doubles playback speed (200/100, AKA 200%).
+
+------------------------------------------------
+------------------------------------------------
 
 ------------------------------------------------
 ------------------------------------------------
@@ -97,27 +101,67 @@ void setSoundPitch(int ID, int pitch)
 ------------------------------------------------
 int createMusic(char *fileName)
 
-    
+    Constructs a Music object.
 
     PARAMETERS
-        fileName | 
+        fileName | String with audio file's path and name. I.e. "./assets/music.wav"
+
+    RETURNS
+        The id (int) of the Music object.
 
 ------------------------------------------------
 void playMusic(int ID)
 
+    Plays audio of Music object. Resumes audio of a paused Music object.
+
+    PARAMETERS
+        ID | Id (int) of Music object to be played.
+
 ------------------------------------------------
 void pauseMusic(int ID)
+
+    Pauses audio of Music object; keeps playback point at pause point.
+
+    PARAMETERS
+        ID | Id (int) of Music object to be paused.
 
 ------------------------------------------------
 void stopMusic(int ID)
 
+    Stops audio of Music object; sets playback point at beginning of audio.
+
+    PARAMETERS
+        ID | Id (int) of Music object to be stopped.
+
 ------------------------------------------------
 void setMusicLoop(int ID, int setting)
+
+    Sets loop setting for audio playback. Default setting is to not loop.
+
+    PARAMETERS
+        ID | Id (int) of Music object adjust loop setting.
+        setting | Int that indicates whether to loop audio or not. "setting" of 1 sets Music object
+        to loop. Any other "setting" - ideally 0 - turns off looping.
 
 ------------------------------------------------
 void setMusicVolume(int ID, unsigned int vol)
 
+    Adjusts playback volume of Music object.
+
+    PARAMETERS
+        ID | Id (int) of Music object to be adjusted.
+        vol | Desired level of volume out of 0-100% range. I.e. input "50" set volume at half (50/100, AKA 50%).
+
 ------------------------------------------------
 void setMusicPitch(int ID, int pitch)
 
+    Adjusts playback pitch of Music object. NOTE: adjusting pitch also affects playback speed.
+
+    PARAMETERS
+        ID | Id (int) of Music object to be adjusted.
+        pitch | Desired pitch out of a 10-1000% range. I.e. input "200" heightens pitch and doubles
+        playback speed (200/100, AKA 200%).
+
 ------------------------------------------------
+
+
