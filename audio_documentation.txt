@@ -1,39 +1,123 @@
 
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+------------------------------------------------
+--------    ARPGMaker DOCUMENTATION    ---------
+------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+////////////////////////////////////////////////
 
-	ARPGMaker Documentation
 
-~~~~  Sound and Music Functionality  ~~~~
+++++++++++++++++++++++++++++++++++++++++++++++++
+      SOUND AND MUSIC CLASSES FUNCTIONALITY
+++++++++++++++++++++++++++++++++++++++++++++++++
+------------------------------------------------
+------------------------------------------------
 
-"Sound" class
+    >>>> "Sound" class <<<<
 
-int createSound(char *fileName)
+------------------------------------------------
+int createSound(char *fileName, int giveBuffer)
 
+    Constructs a Sound object.
+
+    PARAMETERS
+        fileName | String with audio file's path and name. I.e. "./assets/sound.wav"
+        giveBuffer | Int that indicates whether or not to load a buffer with the designated audio file.
+        "giveBuffer" greater than 0 to load buffer; "giveBuffer" less than or equal to 0 to forgo loading buffer.
+
+    RETURNS
+        The id (int) of the object.
+
+------------------------------------------------
+void setBuffer(int ID, int bufferID)
+
+    Sets a Sound object to use the buffer of another Sound object.
+
+    PARAMETERS
+        ID | Id (int) of Sound object to plug into another Sound object's buffer.
+        bufferID | Id (int) of Sound object containing desired buffer to plug into.
+
+------------------------------------------------
 void playSound(int ID)
 
+    Plays audio of Sound object. Resumes audio of paused Sound object.
+
+    PARAMETERS
+        ID | Id (int) of Sound object to be played.
+
+------------------------------------------------
 void pauseSound(int ID)
 
+    Pauses audio of Sound object; keeps playback point at pause point.
+
+    PARAMETERS
+        ID | Id (int) of Sound object to be paused.
+
+------------------------------------------------
 void stopSound(int ID)
 
+    Stops audio of Sound object; sets playback point at beginning of audio.
+
+    PARAMETERS
+        ID | Id (int) of Sound object to be stopped.
+
+------------------------------------------------
 void setSoundLoop(int ID, int setting)
 
+    Sets loop setting for audio playback. Default setting is to not loop.
+
+    PARAMETERS
+        ID | Id (int) of Sound object adjust loop setting.
+        setting | Int that indicates whether to loop audio or not. "setting" of 1 sets Sound object to loop. Any other "setting" - ideally 0 - turns off looping.
+
+------------------------------------------------
 void setSoundVolume(int ID, unsigned int vol)
 
+    Adjusts playback volume of Sound object.
+
+    PARAMETERS
+        ID | Id (int) of Sound object to be adjusted.
+        vol | Desired level of volume out of 0-100% range. I.e. input "50" set volume at half (50/100, AKA 50%).
+
+------------------------------------------------
 void setSoundPitch(int ID, int pitch)
 
+    Adjusts playback pitch of Sound object. NOTE: adjusting pitch also affects playback speed.
 
-"Music" class
+    PARAMETERS
+        ID | Id (int) of Sound object to be adjusted.
+        pitch | Desired pitch out of a 10-1000% range. I.e. input "200" heightens pitch and doubles playback speed (200/100, AKA 200%).
 
+------------------------------------------------
+------------------------------------------------
+
+    >>>> "Music" class <<<<
+
+------------------------------------------------
 int createMusic(char *fileName)
 
+    
+
+    PARAMETERS
+        fileName | 
+
+------------------------------------------------
 void playMusic(int ID)
 
+------------------------------------------------
 void pauseMusic(int ID)
 
+------------------------------------------------
 void stopMusic(int ID)
 
+------------------------------------------------
 void setMusicLoop(int ID, int setting)
 
+------------------------------------------------
 void setMusicVolume(int ID, unsigned int vol)
 
+------------------------------------------------
 void setMusicPitch(int ID, int pitch)
 
+------------------------------------------------
