@@ -46,13 +46,13 @@ void loadTexturesFromFile(char *filePath) {
 }
 
 void setBackground(char *filePath) {
-    for (int i = 0; i < demoMap.tileList.size(); i++) {
+    for (int i = 0; i < (int) demoMap.tileList.size(); i++) {
         demoMap.tileList[i]->texture = filePath;
     }
 }
 
 void renderBackground() {
-    for (int i = 0; i < demoMap.tileList.size(); i++) {
+    for (int i = 0; i < (int) demoMap.tileList.size(); i++) {
         sf::Sprite *tile = new sf::Sprite(textureHash[demoMap.tileList[i]->texture]);
         int x = demoMap.tileList[i]->ID % demoMap.tileX * demoMap.tileSize;
         int y = demoMap.tileList[i]->ID / demoMap.tileX * demoMap.tileSize;
