@@ -324,6 +324,17 @@ static PyObject *ARPGMaker_setMusicPitch(PyObject *self, PyObject *args) {
     Py_RETURN_NONE;
 }
 
+static PyObject *ARPGMaker_getMusicStatus(PyObject *self, PyObject *args) {
+    int ID;
+    int ret;
+
+    if (!PyArg_ParseTuple(args, "i", &ID))
+        return NULL;
+
+    ret = getMusicStatus(ID);
+    return PyLong_FromLong(ret);
+}
+
 static PyObject *ARPGMaker_createSound(PyObject *self, PyObject *args) {
     char *fileName;
     int giveBuffer;
@@ -456,6 +467,7 @@ static PyMethodDef ARPGMakerMethods[] = {
     {"setMusicLoop", ARPGMaker_setMusicLoop, METH_VARARGS, "Set a music loop"},
     {"setMusicVolume", ARPGMaker_setMusicVolume, METH_VARARGS, "Set a music volume"},
     {"setMusicPitch", ARPGMaker_setMusicPitch, METH_VARARGS, "Set a music pitch"},
+    {"getMusicStatus", ARPGMaker_getMusicStatus, METH_VARARGS, "Get the Music object's playback status"},
     {"createSound", ARPGMaker_createSound, METH_VARARGS, "Create a new Sound object"},
     {"setBuffer", ARPGMaker_setBuffer, METH_VARARGS, "Set the sound buffer"},
     {"playSound", ARPGMaker_playSound, METH_VARARGS, "Play a Sound object"},
@@ -464,7 +476,7 @@ static PyMethodDef ARPGMakerMethods[] = {
     {"setSoundLoop", ARPGMaker_setSoundLoop, METH_VARARGS, "Set a sound loop"},
     {"setSoundVolume", ARPGMaker_setSoundVolume, METH_VARARGS, "set a sound volume"},
     {"setSoundPitch", ARPGMaker_setSoundPitch, METH_VARARGS, "Set a sound pitch"},
-    {"getSoundStatus", ARPGMaker_getSoundStatus, METH_VARARGS, "Get the Sound objects playback status"},
+    {"getSoundStatus", ARPGMaker_getSoundStatus, METH_VARARGS, "Get the Sound object's playback status"},
     {NULL, NULL, 0, NULL}
 };
 

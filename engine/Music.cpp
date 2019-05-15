@@ -41,7 +41,9 @@ void Music::setMusicVolume(unsigned int vol) {
 void Music::setMusicPitch(double pitch) {
     music.setPitch(pitch);
 }
-
+int Music::getMusicStatus(int ID) {
+    return music.getStatus();
+}
 
 int createMusic(char *fileName) {
     Music *music = new Music();
@@ -68,6 +70,9 @@ void setMusicVolume(int ID, unsigned int vol) {
 }
 void setMusicPitch(int ID, int pitch) {
     getMusicByID(ID)->setMusicPitch(pitch/100.0);
+}
+int getMusicStatus(int ID) {
+    return getMusicByID(ID)->getMusicStatus(ID);
 }
 Music* getMusicByID(int ID) {
     for(std::list<Music*>::iterator it=musicList.begin(); it != musicList.end(); ++it) {
