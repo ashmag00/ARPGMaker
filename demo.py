@@ -14,22 +14,21 @@ playerID = ARPGMaker.createEntity(200, 200, 50)
 player2 = ARPGMaker.createEntity(400, 400, 50)
 ARPGMaker.setTexture(playerID, "assets/pikachu.png")
 ARPGMaker.setTexture(player2, "assets/pikachu.png")
-#bgMusic = ARPGMaker.createMusic("assets/parry.wav")
-#ARPGMaker.playMusic(bgMusic)
-#ARPGMaker.setMusicLoop(bgMusic,0)
-#ARPGMaker.setMusicVolume(bgMusic,50)
-#ARPGMaker.setMusicPitch(bgMusic,50)
 
-source = ARPGMaker.createSound("assets/parry.wav",1)
+# Load and play music (larger audio)
+'''bgMusic = ARPGMaker.createMusic("assets/parry.wav")
+ARPGMaker.setMusicLoop(bgMusic,1)
+ARPGMaker.setMusicVolume(bgMusic,50)
+ARPGMaker.setMusicPitch(bgMusic,50)
+ARPGMaker.playMusic(bgMusic)'''
+# Load and play sound (smaller audio)
+'''source = ARPGMaker.createSound("assets/parry.wav",1)
 sound2 = ARPGMaker.createSound("assets/parry.wav",0)
 ARPGMaker.setBuffer(sound2,source)
-
-ARPGMaker.playSound(sound2)
 ARPGMaker.setSoundLoop(sound2,1)
 ARPGMaker.setSoundVolume(sound2,10)
-ARPGMaker.setSoundPitch(sound2,200)
-
-ARPGMaker.playSound(sound2)
+ARPGMaker.setSoundPitch(sound2,150)
+ARPGMaker.playSound(sound2)'''
 
 
 while ARPGMaker.isOpen():

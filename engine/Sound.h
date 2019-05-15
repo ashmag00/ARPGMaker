@@ -25,6 +25,7 @@ class Sound {
         void setSoundPitch(double pitch);
         sf::SoundBuffer* getBuffer();
         int loadedBuffer();
+        int getSoundStatus();
 
         // Used for DEBUGGING
         //int main();
@@ -44,6 +45,7 @@ void stopSound(int ID);
 void setSoundLoop(int ID, int setting);
 void setSoundVolume(int ID, unsigned int vol);
 void setSoundPitch(int ID, double pitch);
+int getSoundStatus(int ID);
 Sound* getSoundByID(int ID);
 
 #else
