@@ -16,7 +16,13 @@ tile_size = 128
 ARPGMaker.init(width, height, tile_size, "Noah's Hack 'n Slash")
 
 ARPGMaker.loadTexture("assets/player.png")
+# ARPGMaker.loadTexture("assets/player-1.png")
+# ARPGMaker.loadTexture("assets/player-2.png")
+# ARPGMaker.loadTexture("assets/player-3.png")
 ARPGMaker.loadTexture("assets/sword.png")
+# ARPGMaker.loadTexture("assets/sword-1.png")
+# ARPGMaker.loadTexture("assets/sword-2.png")
+# ARPGMaker.loadTexture("assets/sword-3.png")
 ARPGMaker.loadTexture("assets/enemy.png")
 ARPGMaker.loadTexture("assets/metal.png")
 
@@ -40,8 +46,8 @@ while ARPGMaker.isOpen():
 
     if spawn_time is None or time.time() - spawn_time > 1:
         spawn_time = time.time()
-        dirx = random.randint(15, 400)
-        diry = random.randint(15, 400)
+        dirx = random.randint(15, 300)
+        diry = random.randint(15, 300)
         e1 = Enemy(ARPGMaker.createEntity(random.randint(0, width - enemy_radius), random.randint(0, enemy_radius), enemy_radius), dirx, diry)
         ARPGMaker.setTexture(e1.id, "assets/enemy.png")
         enemy_list.append(e1)
@@ -61,28 +67,54 @@ while ARPGMaker.isOpen():
                 ARPGMaker.movef(enemy.id, int(enemy.dx * update_delta * 100), 100, int(enemy.dy * update_delta * 100), 100)
 
         # Handle input and boundaries
+        # d = ''
         if ARPGMaker.isKeyPressed('W') == 1 and ARPGMaker.getEntityPositionY(player) > 0:
+            # d = 'W'
+            # ARPGMaker.setTexture(player, "assets/player.png")
             ARPGMaker.movef(player, 0, 1, int(-500 * update_delta * 100), 100)
         if ARPGMaker.isKeyPressed('S') == 1 and ARPGMaker.getEntityPositionY(player) < height - player_radius:
+            # d = 'S'
+            # ARPGMaker.setTexture(player, "assets/player-2.png")
             ARPGMaker.movef(player, 0, 1, int(500 * update_delta * 100), 100)
         if ARPGMaker.isKeyPressed('A') == 1 and ARPGMaker.getEntityPositionX(player) > 0:
+            # d = 'A'
+            # ARPGMaker.setTexture(player, "assets/player-3.png")
             ARPGMaker.movef(player, int(-500 * update_delta * 100), 100, 0, 1)
         if ARPGMaker.isKeyPressed('D') == 1 and ARPGMaker.getEntityPositionX(player) < width - player_radius:
+            # d = 'D'
+            # ARPGMaker.setTexture(player, "assets/player-1.png")
             ARPGMaker.movef(player, int(500 * update_delta * 100), 100, 0, 1)
 
+        # tmp = None
         if ARPGMaker.mouseLeftClick():
-            attack = ARPGMaker.createEntity(ARPGMaker.getEntityPositionX(player) + 45, ARPGMaker.getEntityPositionY(player), 40)
+            # if d == 'W':
+            attack = ARPGMaker.createEntity(ARPGMaker.getEntityPositionX(player) + 45, ARPGMaker.getEntityPositionY(player), 30)
             ARPGMaker.setTexture(attack, "assets/sword.png")
-
-        for enemy in enemy_list:
-            if attack is not None and ARPGMaker.circleCollide(attack, enemy.id):
-                enemy_list.remove(enemy)
-                ARPGMaker.remEntity(enemy.id)
-                enemy_kills += 1
+                # tmp = "assets/sword.png"
+            # elif d == 'S':
+            #     attack = ARPGMaker.createEntity(ARPGMaker.getEntityPositionX(player) + 5, ARPGMaker.getEntityPositionY(player) + 25, 20)
+            #     tmp = "assets/sword-2.png"
+            # elif d == 'A':
+            #     attack = ARPGMaker.createEntity(ARPGMaker.getEntityPositionX(player), ARPGMaker.getEntityPositionY(player), 20)
+            #     tmp = "assets/sword-3.png"
+            # elif d == 'D':
+            #     attack = ARPGMaker.createEntity(ARPGMaker.getEntityPositionX(player) + 45, ARPGMaker.getEntityPositionY(player) + 45, 20)
+            #     tmp = "assets/sword-1.png"
+            
+            # if tmp is None:
+            #     attack = ARPGMaker.createEntity(ARPGMaker.getEntityPositionX(player) + 45, ARPGMaker.getEntityPositionY(player), 20)
+            #     ARPGMaker.setTexture(attack, "assets/sword.png")
+            # else:
+            #     ARPGMaker.setTexture(attack, tmp)
 
         for enemy in enemy_list:
             if ARPGMaker.circleCollide(player, enemy.id):
                 ARPGMaker.close()
+
+            if attack is not None and ARPGMaker.circleCollide(attack, enemy.id):
+                enemy_list.remove(enemy)
+                ARPGMaker.remEntity(enemy.id)
+                enemy_kills += 1
 
         # Draw everything
         draw.draw_all()
