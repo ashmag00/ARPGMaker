@@ -22,6 +22,7 @@ class Music {
         void setMusicLoop(int setting);
         void setMusicVolume(unsigned int vol);
         void setMusicPitch(double pitch);
+        int getMusicStatus(int ID);
 
         // Used for DEBUGGING
         //int main();
@@ -38,6 +39,7 @@ void stopMusic(int ID);
 void setMusicLoop(int ID, int setting);
 void setMusicVolume(int ID, unsigned int vol);
 void setMusicPitch(int ID, int pitch);
+int getMusicStatus(int ID);
 Music* getMusicByID(int ID);
 
 #else

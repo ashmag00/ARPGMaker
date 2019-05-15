@@ -21,6 +21,11 @@ int isKeyPressed(char *key) {
             return 1;
     }
 
+    if (strcmp(key, "P") == 0 || strcmp(key, "p") == 0) {
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::P))
+            return 1;
+    }
+
     return 0;
 }
 
