@@ -12,6 +12,8 @@ ARPGMaker.loadTexture("gabe_assets/pikachu-scaled.png")
 ARPGMaker.loadTexture("gabe_assets/pikachu-scaled2.png")
 ARPGMaker.loadTexture("gabe_assets/squirtle-scaled.png")
 ARPGMaker.loadTexture("gabe_assets/jigglypuff.png")
+ARPGMaker.loadTexture("gabe_assets/minun.png")
+ARPGMaker.loadTexture("gabe_assets/plusle.png")
 
 ARPGMaker.setBackground("gabe_assets/testBack-128.png")
 
@@ -20,8 +22,8 @@ player1 = ARPGMaker.createEntity(350, 275, 50)
 ARPGMaker.setTexture(player1, "gabe_assets/squirtle-scaled.png")
 button1 = ARPGMaker.createEntity(50, 450, 50)
 button2 = ARPGMaker.createEntity(650, 450, 50)
-ARPGMaker.setTexture(button1, "gabe_assets/squirtle-scaled.png")
-ARPGMaker.setTexture(button2, "gabe_assets/squirtle-scaled.png")
+ARPGMaker.setTexture(button1, "gabe_assets/minun.png")
+ARPGMaker.setTexture(button2, "gabe_assets/plusle.png")
 musicButton = ARPGMaker.createEntity(350, 450, 50)
 ARPGMaker.setTexture(musicButton, "gabe_assets/jigglypuff.png")
 
@@ -57,24 +59,14 @@ ub = ARPGMaker.createSound("gabe_assets/up-button.wav",1)
 ARPGMaker.setSoundVolume(db, 50)
 ARPGMaker.setSoundVolume(ub, 50)
 ARPGMaker.setSoundPitch(db,75)
-
+# Convenient lists
 enemyVolumes = [50,50,50,50,50,50]
 enemySounds = [e1,e2,e3,e4,db,ub]
-
-
-
-
 
 # Music
 bgMusic = ARPGMaker.createMusic("gabe_assets/shovel-music.wav")
 ARPGMaker.setMusicVolume(bgMusic,50)
-#ARPGMaker.playMusic(bgMusic)
 
-t0 = time.time()
-
-
-def update():
-    return
 
 def pikachuPress(i):
     if ( ARPGMaker.circleCollide(player1,enemyEntities[i]) and ARPGMaker.getSoundStatus(enemySounds[i]) == 0  and ARPGMaker.isKeyPressed('P') == 1 ):
